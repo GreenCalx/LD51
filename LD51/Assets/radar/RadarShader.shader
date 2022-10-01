@@ -7,6 +7,9 @@ Shader "Unlit/RadarShader"
         _RadarSpeed("Speed", Float) = 1
         _RadarFalloffSpeed("Falloff Speed", Float) = 1
         _CurrentTime("Time", Float) = 1
+
+        _GeometryColor("Geometry Color", Color) = (1,1,1,1)
+        _MissColor("Miss Color", Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -46,6 +49,9 @@ Shader "Unlit/RadarShader"
             float _CurrentTime;
 
             sampler2D _CameraDepthTexture;
+
+            fixed4 _GeometryColor;
+            fixed4 _MissColor;
 
             float4x4 _UNITY_MATRIX_I_V;
 
@@ -89,17 +95,24 @@ Shader "Unlit/RadarShader"
                 float D = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);
                 float3 WSPosition = DepthToWorld(i.uv, D);
 
-                float depth = 1 - Linear01Depth(D);
+                float depth = 1-Linear01Depth(D);
 
                 float dist = distance(WSPosition.xyz, center.xyz);
-                if (dist < radius && dist > falloffRadius) {
+                float3 dist01 = 1-saturate(dist / 100);
+
+                float falloffDim = 1-saturate(_CurrentTime / _RadarFalloffSpeed);
+
+                //return float4( float3(dist01) * _GeometryColor, 1);
+                //dist01 = dist01*dist01*dist01*dist01*dist01;
+                if (dist < radius 
+                    //&& dist > falloffRadius
+                    ) {
                     float range = clamp(0.0001, radius, radius - falloffRadius);
                     float alpha = saturate((dist - falloffRadius) / range);
-                    float grayscale = depth * alpha;
-                    return float4(grayscale,grayscale,grayscale,1);
+                    float3 grayscale = dist01;
+                    return float4(float3(grayscale),1) * _GeometryColor * falloffDim;
                 }
-
-                return float4(0,0,0,0);
+                return float4(dist01,1) * _MissColor;
             }
             ENDCG
         }
