@@ -80,3 +80,6 @@ crashlytics-build.properties
 
 # TextMesh Pro
 [Aa]ssets/TextMesh Pro
+
+#vscode
+/.vscode/
