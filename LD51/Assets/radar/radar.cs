@@ -20,7 +20,7 @@ public class radar : MonoBehaviour
     void Update()
     {
         CurrentTime += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.A) || CurrentTime >= 10f) {
+        if (Input.GetKeyDown(KeyCode.R) || CurrentTime >= 10f) {
             CurrentTime = 0;
             shader.SetVector("_PlayerPosition", playerPosition.position);
         }

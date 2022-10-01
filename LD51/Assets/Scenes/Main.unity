@@ -151,7 +151,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -345,6 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22edb43334f884d4f980d8e6b5eafd40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &894296633 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6848951510234270071, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
+  m_PrefabInstance: {fileID: 6379037028644212076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1001905678
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +495,7 @@ GameObject:
   - component: {fileID: 1086930189}
   - component: {fileID: 1086930188}
   - component: {fileID: 1086930187}
+  - component: {fileID: 1086930190}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -529,8 +535,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 100
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -555,14 +561,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086930186}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: -17.999998, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 894296633}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
+--- !u!114 &1086930190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086930186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1aa613794b8c004ebb656d2b43ba6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 2100000, guid: 464134cda8647d542822e3efa1fce06d, type: 2}
+  playerPosition: {fileID: 894296633}
 --- !u!1 &1205656977
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +679,7 @@ RectTransform:
   - {fileID: 2144647867}
   - {fileID: 1816210119}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -770,7 +790,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1581634742
 GameObject:
@@ -1079,13 +1099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     - target: {fileID: 6379037028126271120, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: m_Drag
       value: 0.1
-=======
+      objectReference: {fileID: 0}
     - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -1093,16 +1110,14 @@ PrefabInstance:
     - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: rotSpeedDegPerSec
       value: 6.5
->>>>>>> 0192c9e ([UX] Adding Scenes and pause menu)
       objectReference: {fileID: 0}
     - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: verticalPropellerStrength
       value: 2
       objectReference: {fileID: 0}
->>>>>>> 4c2c194 ([UX] Adding Scenes and pause menu)
     - target: {fileID: 6848951510234270071, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6848951510234270071, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: m_LocalPosition.x

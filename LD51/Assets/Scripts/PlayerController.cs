@@ -52,7 +52,6 @@ public GameObject pauseMenu;
     // Update is called once per frame
     void FixedUpdate()
     {
-        turnVelocity = new Vector3(0f, 0f, rotSpeedDegPerSec);
         if(processInputs) updateInputs();
         submarineEffects();
     }
