@@ -887,6 +887,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 894296632}
   connectedUX: {fileID: 1205656977}
+--- !u!114 &2017947277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 857537954, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+  m_PrefabInstance: {fileID: 7170747316292133667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54ccd3f9a14e0141b95ab8aecf79a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2144647866
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +996,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1205656977}
     - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
+      propertyPath: submarineUI
+      value: 
+      objectReference: {fileID: 2017947277}
+    - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: hullDamageOverSpeed.m_Curve.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1073,6 +1088,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5406081987996451027, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406081987996451027, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406081987996451027, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406081987996451027, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424597790271974600, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424597790271974600, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424597790271974600, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424597790271974600, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7170747315750669890, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
       propertyPath: m_Name
       value: SubmarineUI

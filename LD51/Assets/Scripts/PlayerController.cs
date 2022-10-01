@@ -211,7 +211,8 @@ public GameObject pauseMenu;
         float damage = hullDamageOverSpeed.Evaluate(speedRatio);
         currHP -= damage;
 
-        submarineUI.updateHullHealth(currHP/MAX_HP);
+        if (!!submarineUI)
+            submarineUI.updateHullHealth(currHP/MAX_HP);
     }
 
     private void kill()
