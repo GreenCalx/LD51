@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+[Header("Inputs")]
+public bool processInputs = true;
+[Header("Inputs/UI")]
+public GameObject pauseMenu;
    
     [Header("Tweaks")]
     [Range(0f,100f)]
@@ -48,9 +52,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        updateInputs();
+        turnVelocity = new Vector3(0f, 0f, rotSpeedDegPerSec);
+        if(processInputs) updateInputs();
         submarineEffects();
+    }
+
+    void Update() {
+        if (!processInputs) return;
+
+        if(Input.GetButtonDown("Cancel")) {
+            // spawn pause menu
+            Time.timeScale = 0f;
+            processInputs = false;
+            pauseMenu.SetActive(true);
+        }
     }
 
     private void updateInputs()
