@@ -35,6 +35,8 @@ public GameObject pauseMenu;
     [Header("Submarine Tweaks")]
     public float MAX_HP = 4f;
     public AnimationCurve hullDamageOverSpeed;
+    public int MAX_AMMO = 5;
+    public int currAmmo;
 
 
     ///
@@ -54,7 +56,8 @@ public GameObject pauseMenu;
         rb = GetComponent<Rigidbody>();
         currSpeed = 0f;
         currHP = MAX_HP;
-        playerVelocity = new Vector3(0f,0f,0f);
+        currAmmo = MAX_AMMO;
+        playerVelocity = rb.velocity;
 
         timeVertPropActivated = 0f;
         timeHorPropActivated = 0f;
@@ -156,7 +159,7 @@ public GameObject pauseMenu;
             
             float yDeltaFrontRear = selfFrontRef.position.y - selfRearRef.position.y;
             if (yDeltaFrontRear > 0)
-            { Debug.Log("good ptch");}
+            { }
             else if (yDeltaFrontRear <= 0)
             {
                 rb.rotation = Quaternion.Euler( new Vector3( initialPitch, rb.rotation.eulerAngles.y, rb.rotation.eulerAngles.z));

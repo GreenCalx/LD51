@@ -2,21 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UISubmarine : MonoBehaviour
 {
     [Header("Mandatory")]
     public Image healthBarRef;
     public Image echoLocalisationRef;
+    public Transform ammoImagesHolderRef;
 
+    [Header("UI")]
+    public Color  colorScale;
+    public Sprite availableAmmo;
+    public Sprite usedAmmo;
     ///
     private float echoElapsedTime;
-
+    private Image[] ammoImageRefs;
 
     // Start is called before the first frame update
     void Start()
     {
         echoElapsedTime = 0f;
+        ammoImageRefs = ammoImagesHolderRef.GetComponentsInChildren<Image>();
+        initChildImagesColors(transform);
+    }
+
+    public void initChildImagesColors(Transform root)
+    {
+        foreach (Transform child in root) {
+            Image im = child.GetComponent<Image>();
+            Debug.Log(child.name);
+            if (!!im)
+                im.color = colorScale;
+            
+            TextMeshProUGUI txt = child.GetComponent<TextMeshProUGUI>();
+            if (!!txt)
+                txt.color = colorScale;
+
+            if (child.childCount>0)
+                initChildImagesColors(child);
+        }
     }
 
     // Update is called once per frame
