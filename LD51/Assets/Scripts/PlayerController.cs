@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public bool processInputs = true;
 public GameObject pauseMenu;
    
     [Header("Mandatory Refs")]
-    public Transform selfFrontRef;
-    public Transform selfRearRef;
+    public Transform    selfFrontRef;
+    public Transform    selfRearRef;
+    public UISubmarine  submarineUI;
 
     [Header("Control Tweaks")]
     [Range(0f,100f)]
@@ -31,6 +33,7 @@ public GameObject pauseMenu;
     public float timeBeforePitchDragStarts = 1f; // seconds
 
     [Header("Submarine Tweaks")]
+    public float MAX_HP = 4f;
     public AnimationCurve hullDamageOverSpeed;
 
 
@@ -42,12 +45,16 @@ public GameObject pauseMenu;
     private float initialPitch = 0f;
 
     private float currSpeed = 0f;
+    private float currHP;
+    private Vector3 playerVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         currSpeed = 0f;
+        currHP = MAX_HP;
+        playerVelocity = new Vector3(0f,0f,0f);
 
         timeVertPropActivated = 0f;
         timeHorPropActivated = 0f;
@@ -59,8 +66,10 @@ public GameObject pauseMenu;
     // Update is called once per frame
     void FixedUpdate()
     {
+        playerVelocity = rb.velocity;
         if(processInputs) updateInputs();
         submarineEffects();
+        currSpeed = new Vector3(rb.velocity.x * rb.transform.forward.x, rb.velocity.y * rb.transform.forward.y, rb.velocity.z * rb.transform.forward.z).magnitude;
     }
 
     void Update() {
@@ -72,7 +81,9 @@ public GameObject pauseMenu;
             processInputs = false;
             pauseMenu.SetActive(true);
         }
-        currSpeed = new Vector3(rb.velocity.x * rb.transform.forward.x, rb.velocity.y * rb.transform.forward.y, rb.velocity.z * rb.transform.forward.z).magnitude;
+    
+        if (currHP <= 0)
+        { kill(); }
     }
 
     private void updateInputs()
@@ -173,9 +184,40 @@ public GameObject pauseMenu;
         currentPitch = rb.rotation.eulerAngles.x - initialPitch;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision other)
     {
+        // get the direction from player to collider
+        Vector3 collisionNormal = (other.transform.position - transform.position).normalized;
+        // player speed towerds collision
+        float playerCollisionSpeed = Vector3.Dot(collisionNormal, playerVelocity);
+        if (playerCollisionSpeed < 0) 
+        { playerCollisionSpeed = 0; }
 
+        // other collider's speed if its a moving object
+        float otherCollisionSpeed = 0f;
+        if (other.relativeVelocity.magnitude > playerCollisionSpeed)
+        {
+            otherCollisionSpeed = Vector3.Dot(-collisionNormal, other.relativeVelocity + playerVelocity);
+        }
+
+        if (otherCollisionSpeed<=0.1f)
+        { takeDamageFromStaticCollision(playerCollisionSpeed); }
+        
+    }
+
+    private void takeDamageFromStaticCollision(float playerCollisionSpeed)
+    {
+        float speedRatio = playerCollisionSpeed / MAX_SPEED;
+        float damage = hullDamageOverSpeed.Evaluate(speedRatio);
+        currHP -= damage;
+
+        submarineUI.updateHullHealth(currHP/MAX_HP);
+    }
+
+    private void kill()
+    {
+        //GAME OVER
+        SceneManager.LoadScene( Constants.SN_GAMEOVER, LoadSceneMode.Single);
     }
 }
 

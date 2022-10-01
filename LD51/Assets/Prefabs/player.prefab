@@ -264,7 +264,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!64 &6379037028126271127
 MeshCollider:
@@ -294,12 +294,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   processInputs: 1
   pauseMenu: {fileID: 0}
+  selfFrontRef: {fileID: 6181730248601982355}
+  selfRearRef: {fileID: 4411048756433572064}
+  submarineUI: {fileID: 0}
   verticalPropellerStrength: 2
   horizontalPropellerStrength: 3.8
   rotSpeedDegPerSec: 6.5
   pitchDragStrength: 5.92
   MAX_PITCH_DEG: 20
-  MAX_SPEED: 2.05
+  MAX_SPEED: 2.5
   timeBeforePitchDragStarts: 0.2
-  selfFrontRef: {fileID: 6181730248601982355}
-  selfRearRef: {fileID: 4411048756433572064}
+  MAX_HP: 2
+  hullDamageOverSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
