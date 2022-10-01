@@ -12,9 +12,10 @@ public bool processInputs = true;
 public GameObject pauseMenu;
    
     [Header("Mandatory Refs")]
-    public Transform    selfFrontRef;
-    public Transform    selfRearRef;
-    public UISubmarine  submarineUI;
+    public Transform        selfFrontRef;
+    public Transform        selfRearRef;
+    public UISubmarine      submarineUI;
+    public SubmarineWeapon  submarineWeapon;
 
     [Header("Control Tweaks")]
     [Range(0f,100f)]
@@ -50,6 +51,8 @@ public GameObject pauseMenu;
     private float currHP;
     private Vector3 playerVelocity;
 
+    private float reloadCooldown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,11 +62,15 @@ public GameObject pauseMenu;
         currAmmo = MAX_AMMO;
         playerVelocity = rb.velocity;
 
+        reloadCooldown = 0f;
+
         timeVertPropActivated = 0f;
         timeHorPropActivated = 0f;
 
         initialPitch = rb.rotation.eulerAngles.x;
         updateCurrentPitch();
+
+        loadWeapon();
     }
 
     // Update is called once per frame
@@ -87,6 +94,14 @@ public GameObject pauseMenu;
     
         if (currHP <= 0)
         { kill(); }
+
+        if (reloadCooldown > 0f)
+        {
+            reloadCooldown -= Time.deltaTime;
+        } else if (submarineWeapon.currHarpoon == null) 
+        {
+            loadWeapon();
+        }
     }
 
     private void updateInputs()
@@ -134,6 +149,12 @@ public GameObject pauseMenu;
             turnDirection = (turnDirection >= 0) ? 1 : -1;
             Quaternion deltaRot = Quaternion.Euler( turnDirection * new Vector3(0f, 0f, rotSpeedDegPerSec) * Time.fixedDeltaTime);
             rb.MoveRotation( rb.rotation * deltaRot );
+        }
+
+        // Fire Harpoon
+        if ( Input.GetButton(Constants.INPUT_FIRE) )
+        {
+            tryShoot();
         }
     }
 
@@ -222,6 +243,28 @@ public GameObject pauseMenu;
     {
         //GAME OVER
         SceneManager.LoadScene( Constants.SN_GAMEOVER, LoadSceneMode.Single);
+    }
+
+    public void loadWeapon()
+    {
+        if (currAmmo > 0)
+        {
+            submarineWeapon.spawnAmmo();
+        }
+    }
+
+    public void tryShoot()
+    {
+        if (reloadCooldown > 0f)
+            return; // on CD
+
+        if (currAmmo > 0)
+        {
+            reloadCooldown = Constants.SACRED_NUMBER;
+            submarineWeapon.fire();
+            currAmmo--;
+            submarineUI.refreshAmmos(currAmmo);
+        }
     }
 }
 

@@ -12,6 +12,7 @@ TagManager:
   - Water
   - UI
   - UI2
+  - Weapon
   - 
   - 
   - 
@@ -24,8 +25,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - AlphaCamera
+  - Player
   - 
   - 
   - 

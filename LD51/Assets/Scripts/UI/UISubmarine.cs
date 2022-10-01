@@ -73,4 +73,15 @@ public class UISubmarine : MonoBehaviour
     {
         // for effects if we need
     }
+
+    public void refreshAmmos(int remainingAmmos)
+    {
+        for (int i = ammoImageRefs.Length-1; i >= 0; i--)
+        {
+            if ( i < remainingAmmos)
+                ammoImageRefs[i].sprite = availableAmmo;
+            else
+                ammoImageRefs[i].sprite = usedAmmo;
+        }
+    }
 }
