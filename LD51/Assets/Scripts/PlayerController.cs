@@ -10,7 +10,11 @@ public bool processInputs = true;
 [Header("Inputs/UI")]
 public GameObject pauseMenu;
    
-    [Header("Tweaks")]
+    [Header("Mandatory Refs")]
+    public Transform selfFrontRef;
+    public Transform selfRearRef;
+
+    [Header("Control Tweaks")]
     [Range(0f,100f)]
     public float verticalPropellerStrength = 1f;
     [Range(0f,100f)]
@@ -22,13 +26,13 @@ public GameObject pauseMenu;
     [Range(0f,45f)]
     public float MAX_PITCH_DEG = 30f;
     [Range(0f,10f)]
-    public float MAX_SPEED = 30f;
+    public float MAX_SPEED = 1f;
     [Range(0.1f,5f)]
     public float timeBeforePitchDragStarts = 1f; // seconds
 
-    [Header("Mandatory Refs")]
-    public Transform selfFrontRef;
-    public Transform selfRearRef;
+    [Header("Submarine Tweaks")]
+    public AnimationCurve hullDamageOverSpeed;
+
 
     ///
     private Rigidbody rb;
@@ -37,11 +41,14 @@ public GameObject pauseMenu;
     private float timeHorPropActivated = 0f;
     private float initialPitch = 0f;
 
+    private float currSpeed = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        currSpeed = 0f;
+
         timeVertPropActivated = 0f;
         timeHorPropActivated = 0f;
 
@@ -65,6 +72,7 @@ public GameObject pauseMenu;
             processInputs = false;
             pauseMenu.SetActive(true);
         }
+        currSpeed = new Vector3(rb.velocity.x * rb.transform.forward.x, rb.velocity.y * rb.transform.forward.y, rb.velocity.z * rb.transform.forward.z).magnitude;
     }
 
     private void updateInputs()
@@ -163,6 +171,11 @@ public GameObject pauseMenu;
     private void updateCurrentPitch()
     {
         currentPitch = rb.rotation.eulerAngles.x - initialPitch;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
     }
 }
 
