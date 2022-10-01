@@ -388,17 +388,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
-    - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
-      propertyPath: rotSpeedDegPerSec
-      value: 6.5
+    - target: {fileID: 6379037028126271120, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
+      propertyPath: m_Drag
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: verticalPropellerStrength
-      value: 15.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379037028126271126, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
-      propertyPath: horizontalPropellerStrength
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6848951510234270071, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: m_RootOrder

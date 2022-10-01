@@ -25,9 +25,9 @@ InputManager:
     m_Name: HorizontalPropeller
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: s
     positiveButton: w
-    altNegativeButton: 
+    altNegativeButton: s
     altPositiveButton: z
     gravity: 0
     dead: 0
