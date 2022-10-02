@@ -6,11 +6,15 @@ public class Harpoon : MonoBehaviour
 {
     public bool isFired = false;
     private Rigidbody rb;
+    public ParticleSystem bleedPS;
+
     // Start is called before the first frame update
     void Start()
     {
         isFired = false; 
         rb = GetComponent<Rigidbody>();
+        bleedPS.Pause();
+        bleedPS.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,7 +37,25 @@ public class Harpoon : MonoBehaviour
         Enemy e = other.transform.gameObject.GetComponent<Enemy>();
         if (e!=null)
         {
-            e.impale();
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero; 
+            rb.isKinematic = true;
+            rb.mass = 0;
+
+            Vector3 collisionNormal = (other.transform.position - transform.position).normalized;
+            ContactPoint cp = other.contacts[0];
+            
+            if (!e.isDead)
+            { 
+                e.impale( transform, cp.point, collisionNormal); 
+                transform.SetParent(e.transform);
+                bleedPS.gameObject.SetActive(true);
+                bleedPS.Play();
+                rb.isKinematic = true;
+            }
+        }
+        else {
+            Destroy(gameObject); // hit something like a wall
         }
     }
 }

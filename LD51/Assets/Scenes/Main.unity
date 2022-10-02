@@ -699,6 +699,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 0__WORLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4822017679603260688, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b4541bbb62065244ca51d9ef60d47a3a, type: 2}
+    - target: {fileID: 5632409228101350884, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61271a1f1499d2449850aea93c030541, type: 3}
 --- !u!1 &1581634742
@@ -866,7 +874,7 @@ Transform:
   m_GameObject: {fileID: 1644784090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.654, z: -11.38}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.6352, y: 2.6352, z: 2.6352}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 766565183}
@@ -884,6 +892,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e192f0fb669d48910eb4bece732e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBeforeDeleting: 60
+  sinkSpeed: 1
+  isDead: 0
+  impalingObject: {fileID: 0}
+  impalingLocalisation: {x: 0, y: 0, z: 0}
+  impalingNormal: {x: 0, y: 0, z: 0}
 --- !u!33 &1644784093
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -942,16 +956,16 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644784090}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &1644784096
-MeshCollider:
+--- !u!135 &1644784096
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -960,10 +974,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.0000000055879354, z: 0}
 --- !u!1 &1816210116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1156,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1086930188, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 439
+      objectReference: {fileID: 0}
     - target: {fileID: 6072978413374919629, guid: 6c9a6b333286f4e41b9bec9e34c6f566, type: 3}
       propertyPath: m_Name
       value: player
