@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1225326487638916979
 Transform:
@@ -45,15 +45,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2857213
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -26.452667
+      value: -42.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -59.38154
+      value: -49.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -83,9 +83,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 464134cda8647d542822e3efa1fce06d, type: 2}
     - target: {fileID: 919132149155446097, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
       propertyPath: m_Name
       value: grotto
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c54ca1885f6fa2c49b5fee5a633094ea, type: 3}
@@ -106,7 +122,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5632409228101350884}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b4541bbb62065244ca51d9ef60d47a3a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
