@@ -10,6 +10,8 @@ Shader "Unlit/RadarShader"
 
         _GeometryColor("Geometry Color", Color) = (1,1,1,1)
         _MissColor("Miss Color", Color) = (1,1,1,1)
+
+        _min("min", Float) = 0
     }
     SubShader
     {
@@ -53,6 +55,8 @@ Shader "Unlit/RadarShader"
 
             fixed4 _GeometryColor;
             fixed4 _MissColor;
+
+            float _min;
 
             float4x4 _UNITY_MATRIX_I_V;
 
@@ -102,7 +106,28 @@ Shader "Unlit/RadarShader"
 
                 float3 WSPosition = i.worldPos;
                 float dist = distance(WSPosition.xyz, center.xyz);
-                float3 dist01 = 1-saturate(dist / 100);
+                float3 dist01 = saturate(dist / 100);
+
+                float p1 = 0.1;
+                float p2 = 0.01;
+                if (dist01.x <= p1) {
+                    //remap [0..0.5]
+                    // drop sharply when in white for contrast
+                    //dist01 *= dist01*dist01;
+                    float perc = (dist01.x - 0) / (p1 - 0);
+                    float value = perc * (p2 - 0) + 0;
+                    dist01 = value*value;
+                } else {
+                    // use high contrast for multiple values
+                    float perc = (dist01.x - p1) / (1 - p1);
+                    //perc *= perc;
+                    float value = perc * (1 - p2) + p2;
+                    dist01 = sqrt(value);
+                }
+                dist01 = 1-dist01;
+                //dist01 = clamp( dist01, _min, 1);
+                //dist01 *= dist01*dist01*dist01*dist01;
+                //dist01 *= dist01;
 
                 float falloffDim = 1-saturate(_CurrentTime / _RadarFalloffSpeed);
 
@@ -111,8 +136,8 @@ Shader "Unlit/RadarShader"
                 if (dist < radius 
                     //&& dist > falloffRadius
                     ) {
-                    float range = clamp(0.0001, radius, radius - falloffRadius);
-                    float alpha = saturate((dist - falloffRadius) / range);
+                    //float range = clamp(0.0001, radius, radius - falloffRadius);
+                    //float alpha = saturate((dist - falloffRadius) / range);
                     float3 grayscale = dist01;
                     return float4(float3(grayscale),1) * _GeometryColor * falloffDim;
                 }

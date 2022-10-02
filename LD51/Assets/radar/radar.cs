@@ -23,9 +23,10 @@ public class radar : MonoBehaviour
         CurrentTime += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.R) || CurrentTime >= 10f) {
             CurrentTime = 0;
-            shader.SetVector("_PlayerPosition", playerPosition.position);
-            shaderEnnemy.SetVector("_PlayerPosition", playerPosition.position);
+            
         }
+        shader.SetVector("_PlayerPosition", playerPosition.position);
+        shaderEnnemy.SetVector("_PlayerPosition", playerPosition.position);
         shader.SetFloat("_CurrentTime", CurrentTime);
         shaderEnnemy.SetFloat("_CurrentTime", CurrentTime);
     }
