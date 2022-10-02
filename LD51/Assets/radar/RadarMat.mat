@@ -59,7 +59,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CurrentTime: 4.025441
+    - _CurrentTime: 6.924361
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -84,5 +84,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GeometryColor: {r: 0.051085785, g: 0.26415092, b: 0.10588192, a: 1}
     - _MissColor: {r: 0, g: 0, b: 0, a: 1}
-    - _PlayerPosition: {r: -2.0465608, g: -3.7732444, b: 60.32238, a: 0}
+    - _PlayerPosition: {r: -0.2138536, g: -6.0501523, b: 61.318993, a: 0}
   m_BuildTextureStacks: []
