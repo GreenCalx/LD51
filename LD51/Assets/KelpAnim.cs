@@ -6,6 +6,8 @@ public class KelpAnim : MonoBehaviour
 {
     float currentTime = 0;
     Quaternion baseRot;
+    public float angle;
+    public float amplitude;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,6 @@ public class KelpAnim : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         // NOTE toffa : sens d'application des rotations very important!
-        transform.rotation = Quaternion.AngleAxis( 45 * Mathf.Cos(currentTime*2) * Time.deltaTime, transform.forward ) * transform.rotation;   
+        transform.rotation = Quaternion.AngleAxis( angle * Mathf.Cos(currentTime*amplitude) * Time.deltaTime, transform.forward ) * transform.rotation;   
     }
 }
