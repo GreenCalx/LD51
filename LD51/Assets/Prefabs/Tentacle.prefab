@@ -304,7 +304,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4520718699661485065}
-  - component: {fileID: 1945623812}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Untagged
@@ -329,20 +328,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!114 &1945623812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4520718699661485066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02f8f87226266e429aa19f23e3a079f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angle: 45
-  amplitude: 2
 --- !u!1 &4520718700011138904
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +691,7 @@ PrefabInstance:
     - target: {fileID: 8417361359673230750, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 464134cda8647d542822e3efa1fce06d, type: 2}
+      objectReference: {fileID: 2100000, guid: 65fcf8b45244d4d4cb2ebc5865b9875c, type: 2}
     - target: {fileID: 8879528566716807029, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -744,20 +729,51 @@ MonoBehaviour:
   - {fileID: 2575622276628024632}
   - {fileID: 4219170067396301546}
   bones_last_position: []
-  limitAngle: 30
+  limitAngle: 90
   rootAngle: 0
   S:
     min: -1
     max: 1
-    dampRatio: 0.5
-    stiffness: 1
+    dampRatio: 0.1
+    stiffness: 0.8
     rest: 0
     vel: 0
+--- !u!65 &1181279766231458889
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456425399677217947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2574239, y: 4.0452633, z: 1.5757914}
+  m_Center: {x: 0.11431122, y: 1.5226324, z: -0.28789574}
 --- !u!4 &1444631005316706922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5490399226833740410, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
   m_PrefabInstance: {fileID: 2864978485511991276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2323000050562513597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576046219993421137, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
+  m_PrefabInstance: {fileID: 2864978485511991276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1833015531713434355
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323000050562513597}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6293801, y: 3.5630012, z: 1.0948999}
+  m_Center: {x: -0.08391738, y: 1.8281729, z: -0.0474784}
 --- !u!4 &2326333222975784967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
@@ -768,6 +784,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8900238691920043308, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
   m_PrefabInstance: {fileID: 2864978485511991276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3304229164107430570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 727481061726999878, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
+  m_PrefabInstance: {fileID: 2864978485511991276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8681258277086936506
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304229164107430570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.3052366, z: 1}
+  m_Center: {x: 2.5122254e-14, y: 1.1526165, z: 0.0000004344522}
 --- !u!4 &3807418545673160942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7848410487921219838, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
