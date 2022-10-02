@@ -5,6 +5,7 @@ using UnityEngine;
 public class radar : MonoBehaviour
 {
     public Material shader;
+    public Material shaderEnnemy;
     public Transform playerPosition;
     float CurrentTime = 0;
 
@@ -23,10 +24,13 @@ public class radar : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) || CurrentTime >= 10f) {
             CurrentTime = 0;
             shader.SetVector("_PlayerPosition", playerPosition.position);
+            shaderEnnemy.SetVector("_PlayerPosition", playerPosition.position);
         }
         shader.SetFloat("_CurrentTime", CurrentTime);
+        shaderEnnemy.SetFloat("_CurrentTime", CurrentTime);
     }
 
+#if false
       private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
         Matrix4x4 projectionMatrix = cam.projectionMatrix;
@@ -40,4 +44,5 @@ public class radar : MonoBehaviour
         shader.SetMatrix("_UNITY_MATRIX_I_VP", (projectionMatrix * viewMatrix).inverse);
         Graphics.Blit(source, destination, shader);
     }
+    #endif
 }

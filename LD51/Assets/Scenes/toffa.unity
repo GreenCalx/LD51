@@ -515,6 +515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2086429665104414323, guid: 7025e476bc65ccf4ba033a471540d438, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 464134cda8647d542822e3efa1fce06d, type: 2}
     - target: {fileID: 8168023679557920312, guid: 7025e476bc65ccf4ba033a471540d438, type: 3}
       propertyPath: m_Name
       value: Medusa (1)
@@ -657,7 +661,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662653539}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1aa613794b8c004ebb656d2b43ba6d5, type: 3}
   m_Name: 

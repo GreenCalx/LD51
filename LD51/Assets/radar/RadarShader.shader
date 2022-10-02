@@ -37,6 +37,7 @@ Shader "Unlit/RadarShader"
                 float2 uv : TEXCOORD0;
                 UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
+                float3 worldPos : TEXCOORD1;
             };
 
             sampler2D _MainTex;
@@ -77,11 +78,13 @@ Shader "Unlit/RadarShader"
 
                  float3 vpos = float3((uv * 2 - 1 - p13_31) / p11_22 * vz, -vz);
                  return mul(_UNITY_MATRIX_I_V, float4(vpos, 1));
-             }
+            }
+
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                o.worldPos = mul (unity_ObjectToWorld, v.vertex);
                 o.uv = v.uv;
                 return o;
             }
@@ -92,11 +95,12 @@ Shader "Unlit/RadarShader"
                 float radius = _CurrentTime * _RadarSpeed;
                 float falloffRadius = _CurrentTime * _RadarFalloffSpeed;
 
-                float D = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);
-                float3 WSPosition = DepthToWorld(i.uv, D);
+                //float D = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);
+                //float3 WSPosition = DepthToWorld(i.uv, D);
 
-                float depth = 1-Linear01Depth(D);
+                //float depth = 1-Linear01Depth(D);
 
+                float3 WSPosition = i.worldPos;
                 float dist = distance(WSPosition.xyz, center.xyz);
                 float3 dist01 = 1-saturate(dist / 100);
 

@@ -5,10 +5,11 @@ using UnityEngine;
 public class KelpAnim : MonoBehaviour
 {
     float currentTime = 0;
+    Quaternion baseRot;
     // Start is called before the first frame update
     void Start()
     {
-        
+        baseRot = transform.rotation;
     }
 
     // Update is called once per frame
@@ -16,6 +17,6 @@ public class KelpAnim : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         // NOTE toffa : sens d'application des rotations very important!
-        transform.rotation = Quaternion.AngleAxis( 45 * Mathf.Sin(currentTime) * Time.deltaTime, transform.forward ) * transform.rotation;   
+        transform.rotation = Quaternion.AngleAxis( 45 * Mathf.Cos(currentTime*2) * Time.deltaTime, transform.forward ) * transform.rotation;   
     }
 }

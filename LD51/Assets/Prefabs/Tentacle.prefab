@@ -688,6 +688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tentacle
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 464134cda8647d542822e3efa1fce06d, type: 2}
     - target: {fileID: 8879528566716807029, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
