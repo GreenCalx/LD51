@@ -17,6 +17,9 @@ public class MedusaTestAnim : MonoBehaviour
         currentTime += Time.deltaTime;
 
         // NOTE toffa : sens d'application des rotations very important!
-        transform.rotation = Quaternion.AngleAxis( 45* Time.deltaTime, transform.forward ) * transform.rotation;        
+        transform.rotation = Quaternion.AngleAxis( 45* Time.deltaTime, transform.forward ) * transform.rotation;    
+
+        transform.position += transform.right * Time.deltaTime * Mathf.Sin(currentTime*2) * 5;
+        transform.position += transform.forward * Time.deltaTime * Mathf.Sin(currentTime);    
     }
 }
