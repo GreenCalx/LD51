@@ -133,7 +133,7 @@ public class Enemy : MonoBehaviour
 
     private Vector3 targetPosition;
     bool TargetReached() {
-        return targetPosition.magnitude < playerBoundRadius; 
+        return (targetPosition - transform.position).magnitude < playerBoundRadius; 
     }
     void RandomMove() {
         if (currentTimerRndDirChg >= timerRndDirChg || TargetReached()) {
