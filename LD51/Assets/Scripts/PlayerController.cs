@@ -132,6 +132,9 @@ public GameObject pauseMenu;
         if (reloadCooldown > 0f)
         {
             reloadCooldown -= Time.deltaTime;
+            submarineUI.setHarpoonRdy(false);
+        } else {
+            submarineUI.setHarpoonRdy(true);
         }
     }
     
@@ -294,6 +297,7 @@ public GameObject pauseMenu;
             submarineWeapon.fire();
             currAmmo--;
             submarineUI.refreshAmmos(currAmmo);
+            submarineUI.setHarpoonRdy(false);
         }
     }
 }

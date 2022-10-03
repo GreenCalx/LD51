@@ -15,6 +15,7 @@ public class UISubmarine : MonoBehaviour
     public Color  colorScale;
     public Sprite availableAmmo;
     public Sprite usedAmmo;
+    public TextMeshProUGUI harpoonReady;
     ///
     private float echoElapsedTime;
     private Image[] ammoImageRefs;
@@ -25,6 +26,11 @@ public class UISubmarine : MonoBehaviour
         echoElapsedTime = 0f;
         ammoImageRefs = ammoImagesHolderRef.GetComponentsInChildren<Image>();
         initChildImagesColors(transform);
+    }
+
+    public void setHarpoonRdy(bool iState)
+    {
+        harpoonReady.gameObject.SetActive(iState);
     }
 
     public void initChildImagesColors(Transform root)
