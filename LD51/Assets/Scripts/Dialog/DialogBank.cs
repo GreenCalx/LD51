@@ -119,7 +119,7 @@ public static class DialogBank
     };
     public static readonly string[] BOTANIST_END= 
     {
-        "eternal..."
+        "everything..."
     };
 
     private static List<string[]> bank;
