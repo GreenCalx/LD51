@@ -76,7 +76,7 @@ public class ProcAnim : MonoBehaviour
     void FixedUpdate()
     {
         currentTime += Time.deltaTime;
-        
+
         for(int i = 0; i <= bones.Count-2; ++i) {
             // foreach bones
             var root = bones[i].transform;
