@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1202,6 +1202,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 513549623, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
+    - target: {fileID: 1158106794, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
     - target: {fileID: 1853307623, guid: 61271a1f1499d2449850aea93c030541, type: 3}
       propertyPath: cinematicCallable
       value: 
@@ -1209,7 +1217,19 @@ PrefabInstance:
     - target: {fileID: 180537887284666623, guid: 61271a1f1499d2449850aea93c030541, type: 3}
       propertyPath: dialogUI_ref
       value: 
-      objectReference: {fileID: 796074702}
+      objectReference: {fileID: 1644095422}
+    - target: {fileID: 281828343381035747, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 625999776077606222, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 1644095422}
+    - target: {fileID: 1147083384427096249, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 1644095422}
     - target: {fileID: 1225326487638916979, guid: 61271a1f1499d2449850aea93c030541, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1254,6 +1274,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1323142364176138637, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
+    - target: {fileID: 1793380172627552343, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 1644095422}
+    - target: {fileID: 3843322274969446250, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
+    - target: {fileID: 4002636292325261001, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 4088774300831585603, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
     - target: {fileID: 4356740962798281466, guid: 61271a1f1499d2449850aea93c030541, type: 3}
       propertyPath: dialogUI_ref
       value: 
@@ -1262,10 +1302,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: 0__WORLD
       objectReference: {fileID: 0}
-    - target: {fileID: 4956170804382751746, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+    - target: {fileID: 4494882976187516976, guid: 61271a1f1499d2449850aea93c030541, type: 3}
       propertyPath: dialogUI_ref
       value: 
       objectReference: {fileID: 1644095422}
+    - target: {fileID: 4956170804382751746, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
+    - target: {fileID: 4963792244747635165, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 6215928090205029143, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 1644095422}
+    - target: {fileID: 6664114741614797075, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
+    - target: {fileID: 6820421653445036159, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 7065938271880653641, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 1644095422}
+    - target: {fileID: 7091267284668738808, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 7875864778653988040, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 8232380807459150773, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
+    - target: {fileID: 8232380808456040488, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 8380810519823083231, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
+    - target: {fileID: 8828687673594966697, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61271a1f1499d2449850aea93c030541, type: 3}
 --- !u!4 &1367356663 stripped
