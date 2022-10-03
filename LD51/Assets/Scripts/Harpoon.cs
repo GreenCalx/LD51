@@ -9,7 +9,12 @@ public class Harpoon : MonoBehaviour
     public ParticleSystem bleedPS;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
+    {
+        init();
+    }
+
+    private void init()
     {
         isFired = false; 
         rb = GetComponent<Rigidbody>();
@@ -29,6 +34,8 @@ public class Harpoon : MonoBehaviour
 
     public void launch(Vector3 iDirection, float shootingForce)
     {
+        if (rb==null)
+            init();
         rb.AddForce( iDirection * shootingForce, ForceMode.VelocityChange );
     }
 

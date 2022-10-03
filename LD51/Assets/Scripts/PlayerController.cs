@@ -72,7 +72,6 @@ public GameObject pauseMenu;
         initialPitch = rb.rotation.eulerAngles.x;
         updateCurrentPitch();
 
-        loadWeapon();
     }
 
     public float GetDegats() {
@@ -83,7 +82,6 @@ public GameObject pauseMenu;
     void FixedUpdate()
     {
         playerVelocity = rb.velocity;
-       // if(processInputs) updateInputs();
         
         // check if current speed > max speed
         if ( rb.velocity.magnitude >= MAX_SPEED )
@@ -134,9 +132,6 @@ public GameObject pauseMenu;
         if (reloadCooldown > 0f)
         {
             reloadCooldown -= Time.deltaTime;
-        } else if (submarineWeapon.currHarpoon == null) 
-        {
-            loadWeapon();
         }
     }
     
@@ -294,6 +289,7 @@ public GameObject pauseMenu;
 
         if (currAmmo > 0)
         {
+            submarineWeapon.spawnAmmo();
             reloadCooldown = Constants.SACRED_NUMBER;
             submarineWeapon.fire();
             currAmmo--;
