@@ -19,4 +19,11 @@ public class Constants
     public static readonly string TAG_GROTTO = "Grotto";
 
     public static readonly string SFX_RADAR = "RadarBeep";
+
+    public static readonly string SFX_DAMAGEUP = "SFX_DAMAGEUP";
+    public static readonly string SFX_DAMAGEDOWN = "SFX_DAMAGEDOWN";
+    public static readonly string SFX_DAMAGELEFT = "SFX_DAMAGELEFT";
+    public static readonly string SFX_DAMAGERIGHT = "SFX_DAMAGERIGHT";
+    public static readonly string SFX_DAMAGEUPFRONT = "SFX_DAMAGEUPFRONT";
+    public static readonly string SFX_DAMAGEUPBACK = "SFX_DAMAGEUPBACK";
 }

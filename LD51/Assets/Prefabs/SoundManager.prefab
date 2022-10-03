@@ -46,32 +46,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sounds:
   - Source: {fileID: 0}
-    Clip: {fileID: 0}
-    Volume: 0
-    Pitch: 0
+    Clip: {fileID: 8300000, guid: 3121b3116353bd84385095e0f26d868e, type: 3}
+    Volume: 1
+    Pitch: 1
     Loop: 0
-    Name: 
+    Name: RadarBeep
+    playOnAwake: 0
+    spatialize: 0
   - Source: {fileID: 0}
-    Clip: {fileID: 0}
-    Volume: 0
-    Pitch: 0
+    Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
+    Volume: 1
+    Pitch: 1
     Loop: 0
-    Name: 
+    Name: SFX_DAMAGEUPFRONT
+    playOnAwake: 1
+    spatialize: 1
   - Source: {fileID: 0}
-    Clip: {fileID: 0}
-    Volume: 0
-    Pitch: 0
+    Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
+    Volume: 1
+    Pitch: 1
     Loop: 0
-    Name: 
+    Name: SFX_DAMAGEUP
+    playOnAwake: 1
+    spatialize: 1
   - Source: {fileID: 0}
-    Clip: {fileID: 0}
-    Volume: 0
-    Pitch: 0
+    Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
+    Volume: 1
+    Pitch: 1
     Loop: 0
-    Name: 
+    Name: SFX_DAMAGEDOWN
+    playOnAwake: 1
+    spatialize: 1
   - Source: {fileID: 0}
-    Clip: {fileID: 0}
-    Volume: 0
-    Pitch: 0
+    Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
+    Volume: 1
+    Pitch: 1
     Loop: 0
-    Name: 
+    Name: SFX_DAMAGELEFT
+    playOnAwake: 1
+    spatialize: 1
+  - Source: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Name: SFX_DAMAGERIGHT
+    playOnAwake: 1
+    spatialize: 1
+  - Source: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Name: SFX_DAMAGEUPBACK
+    playOnAwake: 1
+    spatialize: 1

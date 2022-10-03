@@ -17,6 +17,7 @@ public class SoundAsset
     public bool Loop;
     public string Name;
     public bool playOnAwake;
+    public bool spatialize;    
 }
 
 public class SoundManager : MonoBehaviour
@@ -45,6 +46,7 @@ public class SoundManager : MonoBehaviour
             s.Source.pitch = s.Pitch;
             s.Source.loop = s.Loop;
             s.Source.playOnAwake = s.playOnAwake;
+            s.Source.spatialize = s.spatialize;
         }
 
     }

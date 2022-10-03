@@ -16,6 +16,7 @@ public GameObject pauseMenu;
     public Transform        selfRearRef;
     public UISubmarine      submarineUI;
     public SubmarineWeapon  submarineWeapon;
+    public Damage3DAudio    audioDamage;
 
     [Header("Control Tweaks")]
     [Range(0f,100f)]
@@ -258,7 +259,48 @@ public GameObject pauseMenu;
 
         if (otherCollisionSpeed<=0.1f)
         { takeDamageFromStaticCollision(playerCollisionSpeed); }
+
+        playSpatializedCollisionAudio(other.transform);
         
+    }
+
+    private void playSpatializedCollisionAudio(Transform collider)
+    {
+        Vector3 crp = collider.InverseTransformPoint(collider.transform.position);
+
+        // Get the biggest relative coord => consider its coming from this direction
+        float X_abs = Mathf.Abs(crp.x);
+        float Y_abs = Mathf.Abs(crp.y);
+        float Z_abs = Mathf.Abs(crp.z);
+
+        bool is_X = (X_abs >= Y_abs) && (X_abs >= Z_abs);
+        bool is_Y = (Y_abs >= X_abs) && (Y_abs >= Z_abs);
+        bool is_Z = (Z_abs >= X_abs) && (Z_abs >= Y_abs);
+
+        // Play right AS according to relative coord sign
+        if (is_X)
+        {
+            if (crp.x > 0) // R
+                Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGERIGHT);
+            else
+                Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGELEFT);
+            return;
+        }
+        else if (is_Y)
+        {
+            if (crp.y > 0) // R
+                Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGEUP);
+            else
+                Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGEDOWN);
+            return;
+        } else {
+            if (crp.z > 0) // R
+                Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGEUPFRONT);
+            else
+                Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGEUPBACK);
+            return;
+        }
+
     }
 
     private void takeDamageFromStaticCollision(float playerCollisionSpeed)
@@ -269,6 +311,7 @@ public GameObject pauseMenu;
 
         if (!!submarineUI)
             submarineUI.updateHullHealth(currHP/MAX_HP);
+        
     }
 
     private void kill()
