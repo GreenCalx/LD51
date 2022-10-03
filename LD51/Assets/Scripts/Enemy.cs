@@ -38,6 +38,8 @@ public BoxCollider bc;
         if (!bc)
             bc = GetComponent<BoxCollider>();
 
+        patrol = bc != null;
+
         isDead = false;
         elapsedTimeBeforeDeletion = 0f;
         
@@ -49,6 +51,7 @@ public BoxCollider bc;
     }
 
     public bool canSwim = false;
+    public bool patrol = false;
 
     // Update is called once per frame
     void Update()
@@ -78,7 +81,7 @@ public BoxCollider bc;
         // ..
 
         if (canSeePlayer) AttackPlayer();
-        else RandomMove();
+        else if (patrol) RandomMove();
     }
 
     public void impale(Transform impaler, Vector3 localisation, Vector3 normal)
@@ -149,7 +152,7 @@ public BoxCollider bc;
     }
 
     bool WallReached() {
-        return !bc.bounds.Contains(rb.position); 
+        return bc ? !bc.bounds.Contains(rb.position) : false; 
     }
     void RandomMove() {
         if (currentTimerRndDirChg >= timerRndDirChg || (TargetReached())) {
