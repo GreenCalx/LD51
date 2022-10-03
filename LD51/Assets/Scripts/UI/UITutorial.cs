@@ -34,6 +34,7 @@ public class UITutorial : MonoBehaviour
                 Destroy(gameObject); // tutorial is over
                 controller.processInputs = true;
                 Time.timeScale = 1f;
+                Access.SoundManager().Play(Constants.BGM_BLOOP);
             }
         }
     }

@@ -585,7 +585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5515782048937437448}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Dialogs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1345,6 +1345,7 @@ GameObject:
   - component: {fileID: 1158856291900525974}
   - component: {fileID: 3334066385522286481}
   - component: {fileID: 4512785741243810119}
+  - component: {fileID: 6919852252389686138}
   m_Layer: 0
   m_Name: BOTANIST_HEADHURT1
   m_TagString: Untagged
@@ -1398,6 +1399,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 140, y: 140, z: 4.394356}
   m_Center: {x: 0, y: 0, z: 7.802822}
+--- !u!114 &6919852252389686138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7967741391115975938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbc8e2d1788e834b9858746eb5d0680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: BGM_CHANT
+  oneShot: 1
 --- !u!1 &8164835563443149677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1488,7 @@ GameObject:
   - component: {fileID: 6793570511061341266}
   - component: {fileID: 5368699955027684289}
   - component: {fileID: 9174536734947907825}
+  - component: {fileID: 8612651161333653983}
   m_Layer: 0
   m_Name: BOTANIST_HEADHURT2
   m_TagString: Untagged
@@ -1526,3 +1542,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 951.5739, y: 185.005, z: 4.394356}
   m_Center: {x: -111.155365, y: -11.6768, z: 7.802822}
+--- !u!114 &8612651161333653983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853944014620294207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbc8e2d1788e834b9858746eb5d0680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: BGM_CHANT
+  oneShot: 1

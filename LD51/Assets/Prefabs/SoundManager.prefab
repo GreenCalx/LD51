@@ -55,7 +55,7 @@ MonoBehaviour:
     spatialize: 0
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
-    Volume: 1
+    Volume: 0.5
     Pitch: 1
     Loop: 0
     Name: SFX_DAMAGEUPFRONT
@@ -63,7 +63,7 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
-    Volume: 1
+    Volume: 0.5
     Pitch: 1
     Loop: 0
     Name: SFX_DAMAGEUP
@@ -71,7 +71,7 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
-    Volume: 1
+    Volume: 0.5
     Pitch: 1
     Loop: 0
     Name: SFX_DAMAGEDOWN
@@ -79,7 +79,7 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
-    Volume: 1
+    Volume: 0.5
     Pitch: 1
     Loop: 0
     Name: SFX_DAMAGERIGHT
@@ -87,7 +87,7 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
-    Volume: 1
+    Volume: 0.5
     Pitch: 1
     Loop: 0
     Name: SFX_DAMAGELEFT
@@ -95,7 +95,7 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
-    Volume: 0.6
+    Volume: 0.5
     Pitch: 1
     Loop: 0
     Name: SFX_DAMAGEUPBACK
@@ -111,7 +111,7 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: ccfdf56ca86786a4cab5c1aa194dc72e, type: 3}
-    Volume: 0.5
+    Volume: 0.35
     Pitch: 1
     Loop: 0
     Name: BGM_CHANT
@@ -119,7 +119,7 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 1fc993b6632308d4b8eb7d5fe186de5b, type: 3}
-    Volume: 0.75
+    Volume: 0.2
     Pitch: 1
     Loop: 0
     Name: BGM_BLOOP
