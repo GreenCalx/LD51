@@ -82,7 +82,7 @@ MonoBehaviour:
     Volume: 1
     Pitch: 1
     Loop: 0
-    Name: SFX_DAMAGELEFT
+    Name: SFX_DAMAGERIGHT
     playOnAwake: 1
     spatialize: 1
   - Source: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
     Volume: 1
     Pitch: 1
     Loop: 0
-    Name: SFX_DAMAGERIGHT
+    Name: SFX_DAMAGELEFT
     playOnAwake: 1
     spatialize: 1
   - Source: {fileID: 0}
@@ -106,6 +106,22 @@ MonoBehaviour:
     Volume: 0.75
     Pitch: 1
     Loop: 0
-    Name: CREATURE
+    Name: SFX_CREATURE
+    playOnAwake: 1
+    spatialize: 1
+  - Source: {fileID: 0}
+    Clip: {fileID: 8300000, guid: ccfdf56ca86786a4cab5c1aa194dc72e, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Name: BGM_CHANT
+    playOnAwake: 1
+    spatialize: 1
+  - Source: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 1fc993b6632308d4b8eb7d5fe186de5b, type: 3}
+    Volume: 0.75
+    Pitch: 1
+    Loop: 0
+    Name: BGM_BLOOP
     playOnAwake: 1
     spatialize: 1

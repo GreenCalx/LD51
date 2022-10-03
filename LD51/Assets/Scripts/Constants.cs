@@ -29,4 +29,8 @@ public class Constants
     public static readonly string SFX_DAMAGERIGHT = "SFX_DAMAGERIGHT";
     public static readonly string SFX_DAMAGEUPFRONT = "SFX_DAMAGEUPFRONT";
     public static readonly string SFX_DAMAGEUPBACK = "SFX_DAMAGEUPBACK";
+
+    public static readonly string SFX_CREATURE = "SFX_DAMAGEUPBACK";
+    public static readonly string BGM_CHANT = "BGM_CHANT";
+    public static readonly string BGM_BLOOP = "BGM_BLOOP";
 }
