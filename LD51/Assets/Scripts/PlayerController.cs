@@ -53,6 +53,8 @@ public GameObject pauseMenu;
 
     private float reloadCooldown;
 
+    public Spring UpVectorSpring;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,13 +79,43 @@ public GameObject pauseMenu;
     void FixedUpdate()
     {
         playerVelocity = rb.velocity;
-        if(processInputs) updateInputs();
+       // if(processInputs) updateInputs();
+        
+        // check if current speed > max speed
+        if ( rb.velocity.magnitude >= MAX_SPEED )
+        {
+            rb.velocity = rb.velocity.normalized * MAX_SPEED;
+        } else {
+            // if not we add force
+            rb.AddForce(nextFrameForce);
+            rb.AddTorque(nextFrameTorque);
+        }
+        
         submarineEffects();
         currSpeed = new Vector3(rb.velocity.x * rb.transform.forward.x, rb.velocity.y * rb.transform.forward.y, rb.velocity.z * rb.transform.forward.z).magnitude;
+
+        nextFrameForce = Vector3.zero;
+        nextFrameTorque = Vector3.zero;
+
+        // correct up vector
+        // always force to have up vector along world up
+        var worldUp = Vector3.up;
+        var currentUp = transform.up;
+        var rot = Quaternion.FromToRotation(currentUp, worldUp);
+        float angle = 0.0f;
+        Vector3 axis = Vector3.zero;
+        rot.ToAngleAxis(out angle, out axis);
+        if (angle > 180) angle -= 360;
+        if (angle < -180) angle += 360;
+        var error = angle / 180;
+        angle = UpVectorSpring.GetValue( error, Time.fixedDeltaTime) * 180;
+        var newRot = Quaternion.AngleAxis(angle, axis);
+        rb.MoveRotation(rb.rotation * newRot);
     }
 
     void Update() {
         if (!processInputs) return;
+        updateInputs();
 
         if(Input.GetButtonDown("Cancel")) {
             // spawn pause menu
@@ -103,14 +135,18 @@ public GameObject pauseMenu;
             loadWeapon();
         }
     }
+    
+    private Vector3 nextFrameForce;
+    private Vector3 nextFrameTorque;
+    private Quaternion nextRot;
 
     private void updateInputs()
     {
         // vertical propeller (upward)
         if ( Input.GetButton(Constants.INPUT_VPROP))
         {
-            rb.AddForce(new Vector3(0,verticalPropellerStrength,0), ForceMode.Force);
-            timeVertPropActivated += Time.fixedDeltaTime;
+            nextFrameForce += new Vector3(0, verticalPropellerStrength, 0);
+            timeVertPropActivated += Time.deltaTime;
         } else {
             timeVertPropActivated = 0f;
         }
@@ -120,15 +156,8 @@ public GameObject pauseMenu;
         {
             Vector3 direction = selfFrontRef.position - selfRearRef.position;
             direction *=  horizontalPropellerStrength;
-            
-            // check if current speed > max speed
-            if ( rb.velocity.magnitude >= MAX_SPEED )
-            {
-                rb.velocity = rb.velocity.normalized * MAX_SPEED;
-            } else {
-                // if not we add force
-                rb.AddForce( direction, ForceMode.Force);
-            }
+
+            nextFrameForce += direction;
             timeHorPropActivated += Time.fixedDeltaTime;
         } else {
             timeHorPropActivated = 0f;
@@ -139,7 +168,8 @@ public GameObject pauseMenu;
         {
             Vector3 direction = selfFrontRef.position - selfRearRef.position;
             direction *=  horizontalPropellerStrength;
-            rb.AddForce( -direction, ForceMode.Force);
+
+            nextFrameForce += direction;
         }
 
         // Turn (L/R)
@@ -147,8 +177,8 @@ public GameObject pauseMenu;
         {
             float turnDirection = Input.GetAxisRaw(Constants.INPUT_TURN);
             turnDirection = (turnDirection >= 0) ? 1 : -1;
-            Quaternion deltaRot = Quaternion.Euler( turnDirection * new Vector3(0f, 0f, rotSpeedDegPerSec) * Time.fixedDeltaTime);
-            rb.MoveRotation( rb.rotation * deltaRot );
+            
+            nextFrameTorque += turnDirection * rotSpeedDegPerSec * transform.up;
         }
 
         // Fire Harpoon
@@ -242,7 +272,7 @@ public GameObject pauseMenu;
     private void kill()
     {
         //GAME OVER
-        SceneManager.LoadScene( Constants.SN_GAMEOVER, LoadSceneMode.Single);
+        //SceneManager.LoadScene( Constants.SN_GAMEOVER, LoadSceneMode.Single);
     }
 
     public void loadWeapon()
