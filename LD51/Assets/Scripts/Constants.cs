@@ -9,6 +9,8 @@ public class Constants
 
     public static readonly string SN_TITLE = "Title";
     public static readonly string SN_GAMEOVER = "GameOver";
+    public static readonly string SN_MAIN = "Main";
+    public static readonly string SN_FISH = "FishEntrails";
 
     public static readonly string GO_PLAYER = "Player";
     public static readonly string GO_UISUBMARINE = "SubmarineUI";

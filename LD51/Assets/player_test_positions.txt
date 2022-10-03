@@ -1,0 +1,5 @@
+old player pos
+Vector3(0,0,60.4765129)
+
+test end pos
+Vector3(1.79999995,-88.1600037,-779.070007)
