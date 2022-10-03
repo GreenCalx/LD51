@@ -1173,6 +1173,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5899255318282501796, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
   m_PrefabInstance: {fileID: 7170747316292133667}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1731939198 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1731939198, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+  m_PrefabInstance: {fileID: 8777192657386399680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813881964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1811,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
+      propertyPath: Sounds.Array.data[0].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3121b3116353bd84385095e0f26d868e, type: 3}
+    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
+      propertyPath: Sounds.Array.data[0].Name
+      value: RadarBeep
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
+      propertyPath: Sounds.Array.data[0].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
+      propertyPath: Sounds.Array.data[0].Source
+      value: 
+      objectReference: {fileID: 1731939198}
+    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
+      propertyPath: Sounds.Array.data[0].Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8483461407364482873, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2216,6 +2241,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1731939198, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731939198, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6533093240359293524, guid: 76abd0a6d7bfbe04c959ea0fa76571ca, type: 2}
+    - target: {fileID: 1731939198, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731939198, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8777192656003815911, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
       propertyPath: m_Name
       value: Player

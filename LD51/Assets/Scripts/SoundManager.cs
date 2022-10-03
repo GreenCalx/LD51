@@ -16,6 +16,7 @@ public class SoundAsset
     public float Pitch;
     public bool Loop;
     public string Name;
+    public bool playOnAwake;
 }
 
 public class SoundManager : MonoBehaviour
@@ -43,6 +44,7 @@ public class SoundManager : MonoBehaviour
             s.Source.volume = s.Volume;
             s.Source.pitch = s.Pitch;
             s.Source.loop = s.Loop;
+            s.Source.playOnAwake = s.playOnAwake;
         }
 
     }
@@ -50,8 +52,17 @@ public class SoundManager : MonoBehaviour
     public void Play(string SoundName)
     {
         SoundAsset S = Array.Find(Sounds, Sound => Sound.Name == SoundName);
+        S.Source.Stop();
         if (S == null) Debug.LogError("Sound " + SoundName + " not found!");
         S.Source.Play();
+    }
+
+    public void PlayOneShot(string SoundName)
+    {
+        SoundAsset S = Array.Find(Sounds, Sound => Sound.Name == SoundName);
+        //S.Source.Stop();
+        if (S == null) Debug.LogError("Sound " + SoundName + " not found!");
+        S.Source.PlayOneShot(S.Clip);
     }
 
     public void Stop(string SoundName)

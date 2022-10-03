@@ -73,10 +73,10 @@ public class Access
         return cache.getObject<UISubmarine>(Constants.GO_UISUBMARINE, false);
     }
 
-    /*     
+    
     public static SoundManager SoundManager()
     {
         return cache.getObject<SoundManager>(Constants.GO_SOUNDMANAGER, false);
     } 
-    */
+    
 }

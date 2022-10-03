@@ -82,6 +82,7 @@ public class UISubmarine : MonoBehaviour
     private void pulseActive()
     {
         // for effects if we need
+        Access.SoundManager().PlayOneShot(Constants.SFX_RADAR);
     }
 
     public void refreshAmmos(int remainingAmmos)
