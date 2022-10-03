@@ -251,6 +251,7 @@ public GameObject pauseMenu;
 
     void OnCollisionEnter(Collision other)
     {
+        Debug.Log("player collision enter");
         // get the direction from player to collider
         Vector3 collisionNormal = (other.transform.position - transform.position).normalized;
         // player speed towerds collision

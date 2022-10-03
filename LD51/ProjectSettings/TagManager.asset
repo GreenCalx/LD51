@@ -16,11 +16,11 @@ TagManager:
   - Grotto
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - no_colllide
+  - no_auto_collide
+  - only_collide_player
+  - collide_world_only
+  - collide_world_player
   - 
   - 
   - 
