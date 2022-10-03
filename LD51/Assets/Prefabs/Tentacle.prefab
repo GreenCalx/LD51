@@ -304,6 +304,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4520718699661485065}
+  - component: {fileID: 788279452}
+  - component: {fileID: 927874192473508948}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Untagged
@@ -328,6 +330,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+--- !u!54 &788279452
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520718699661485066}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &927874192473508948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520718699661485066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02f8f87226266e429aa19f23e3a079f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 60
+  amplitude: 2
 --- !u!1 &4520718700011138904
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +743,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -6802688631930764425, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
   m_PrefabInstance: {fileID: 2864978485511991276}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1181279766231458889
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456425399677217947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2574239, y: 4.0452633, z: 1.5757914}
+  m_Center: {x: 0.11431122, y: 1.5226324, z: -0.28789574}
 --- !u!114 &3328975152654678935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,19 +783,6 @@ MonoBehaviour:
     stiffness: 0.8
     rest: 0
     vel: 0
---- !u!65 &1181279766231458889
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456425399677217947}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2574239, y: 4.0452633, z: 1.5757914}
-  m_Center: {x: 0.11431122, y: 1.5226324, z: -0.28789574}
 --- !u!4 &1444631005316706922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5490399226833740410, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}
