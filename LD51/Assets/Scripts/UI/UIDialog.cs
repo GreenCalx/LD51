@@ -95,4 +95,9 @@ public class UIDialog : MonoBehaviour
             overflowing_text = __msg_to_display.Substring(n_visible);
         __overflow_checked = true;
     }
+
+    public void resetMessage()
+    {
+        __message.text = "";
+    }
 }

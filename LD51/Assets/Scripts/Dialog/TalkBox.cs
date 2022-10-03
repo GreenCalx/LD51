@@ -10,6 +10,7 @@ public class TalkBox : MonoBehaviour
     public GameObject dialogUI_ref;
     [Header("OPTIONALS")]
     public float timeBetweenDialogFrames = 2f;
+    public float delayedStart = 0f;
     public AudioClip[] voices;
     //////////////////////////////////
     private AudioSource audio_source; 
@@ -18,7 +19,8 @@ public class TalkBox : MonoBehaviour
     private string[] loaded_dialog;
     private int curr_dialog_index;
     private float elapsedTimeBetweenFrames = 0f;
-   
+    private float elapsedTimeSinceDialogStarted = 0f;
+    private bool delayedStartAsked = false;
     //////////////////////////////////
 
     void Start()
@@ -35,6 +37,13 @@ public class TalkBox : MonoBehaviour
 
     void Update()
     {
+        if ( delayedStartAsked )
+        {
+            elapsedTimeSinceDialogStarted += Time.deltaTime;
+            if ( elapsedTimeSinceDialogStarted >= delayedStart )
+            { talk(); delayedStartAsked = false; }
+        }
+
         if (is_in_dialog)
         {
             elapsedTimeBetweenFrames += Time.deltaTime;
@@ -47,6 +56,12 @@ public class TalkBox : MonoBehaviour
     {
         if (iCol.transform.parent?.GetComponent<PlayerController>())
         {
+            if ( delayedStart > 0f )
+            {
+                delayedStartAsked = true;
+                return;
+            }
+
             talk();
         }
     }
@@ -83,6 +98,7 @@ public class TalkBox : MonoBehaviour
                 if (curr_dialog_index >= loaded_dialog.Length )
                 {
                     end_dialog();
+                    dialogUI.resetMessage();
                     return;
                 }
             
@@ -112,5 +128,7 @@ public class TalkBox : MonoBehaviour
         dialogUI_ref.SetActive(false);
         curr_dialog_index  = 0;
         elapsedTimeBetweenFrames = 0f;
+        elapsedTimeSinceDialogStarted = 0f;
+        delayedStartAsked = false;
     }
 }

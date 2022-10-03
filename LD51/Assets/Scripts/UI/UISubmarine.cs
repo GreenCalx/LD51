@@ -30,6 +30,10 @@ public class UISubmarine : MonoBehaviour
     public void initChildImagesColors(Transform root)
     {
         foreach (Transform child in root) {
+
+            if (child.name=="Tutorial")
+                continue; // no colorize tuto
+
             Image im = child.GetComponent<Image>();
             Debug.Log(child.name);
             if (!!im)
