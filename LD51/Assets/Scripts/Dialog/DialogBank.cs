@@ -109,6 +109,19 @@ public static class DialogBank
         "Its'... Not it can't be..."
     };
 
+    public static readonly string[] CAPTAIN_END= 
+    {
+        "I..."
+    };
+    public static readonly string[] BIOLOGIST_END= 
+    {
+        "am..."
+    };
+    public static readonly string[] BOTANIST_END= 
+    {
+        "eternal..."
+    };
+
     private static List<string[]> bank;
 
     static DialogBank()
@@ -137,7 +150,10 @@ public static class DialogBank
             CAPTAIN_REPBIO2,//19
             BIOLOGIST_REPCAPTAIN2,//20
             BOTANIST_HEADHURT2,//21
-            CAPTAIN_FINALP2//22
+            CAPTAIN_FINALP2,//22,
+            CAPTAIN_END,//23,
+            BIOLOGIST_END,//24
+            BOTANIST_END//25
              };
     }
 

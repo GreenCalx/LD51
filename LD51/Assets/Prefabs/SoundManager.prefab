@@ -95,9 +95,17 @@ MonoBehaviour:
     spatialize: 1
   - Source: {fileID: 0}
     Clip: {fileID: 8300000, guid: 51122701710fefb4a8b5c8126cfa1cea, type: 3}
-    Volume: 1
+    Volume: 0.6
     Pitch: 1
     Loop: 0
     Name: SFX_DAMAGEUPBACK
+    playOnAwake: 1
+    spatialize: 1
+  - Source: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 5a82613d4176eeb40b9d5fbb776680c7, type: 3}
+    Volume: 0.75
+    Pitch: 1
+    Loop: 0
+    Name: CREATURE
     playOnAwake: 1
     spatialize: 1
