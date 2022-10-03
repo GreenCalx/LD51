@@ -98,6 +98,7 @@ public BoxCollider bc;
 
     void OnCollisionEnter(Collision other)
     {
+        Debug.Log("collision ennemy");
         if (other.transform.tag==Constants.TAG_GROTTO)
         {
             rb.isKinematic = true;
@@ -105,10 +106,12 @@ public BoxCollider bc;
     }
 
     void OnTriggerEnter(Collider C) {
+        Debug.Log("ennemy trigger enter : " + gameObject.name + "  " + C.gameObject.name);
         if (C.GetComponent<PlayerController>())
             canSeePlayer = true;
     }
     void OnTriggerExit(Collider C) {
+        Debug.Log("ennemy trigger exit : " + gameObject.name + "  " + C.gameObject.name);
         if (C.GetComponent<PlayerController>()) {
             canSeePlayer = false;
         };

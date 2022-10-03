@@ -20,6 +20,7 @@ public class CinematicEvent : MonoBehaviour
 
     void OnTriggerEnter(Collider iCollider)
     {
+        Debug.Log("trigger enter cine");
         if (iCollider.transform.parent.GetComponent<PlayerController>())
         {
            cinematicCallable.OnCall() ;

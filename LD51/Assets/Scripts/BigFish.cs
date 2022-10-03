@@ -42,6 +42,7 @@ public class BigFish : CinematicCallable
 
     void OnTriggerEnter(Collider iCollider)
     {
+        Debug.Log("bug fish trigger enter");
         delayActive = true;
         elapsedDelay = 0f;
     }

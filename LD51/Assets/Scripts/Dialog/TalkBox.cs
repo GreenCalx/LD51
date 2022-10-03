@@ -54,6 +54,7 @@ public class TalkBox : MonoBehaviour
 
     void OnTriggerEnter(Collider iCol)
     {
+        Debug.Log("talk trigger enter");
         if (iCol.transform.parent?.GetComponent<PlayerController>())
         {
             if ( delayedStart > 0f )
@@ -68,6 +69,7 @@ public class TalkBox : MonoBehaviour
 
     void OnTriggerExit(Collider iCol)
     {
+        Debug.Log("talk trigger exit");
         if (iCol.GetComponent<PlayerController>())
         {
             //end_dialog();
