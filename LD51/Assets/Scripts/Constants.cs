@@ -10,7 +10,7 @@ public class Constants
     public static readonly string SN_TITLE = "Title";
     public static readonly string SN_GAMEOVER = "GameOver";
 
-    public static readonly string GO_PLAYER = "player";
+    public static readonly string GO_PLAYER = "Player";
     public static readonly string GO_UISUBMARINE = "SubmarineUI";
     public static readonly string GO_SOUNDMANAGER = "";
 

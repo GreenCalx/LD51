@@ -75,6 +75,10 @@ public GameObject pauseMenu;
         loadWeapon();
     }
 
+    public float GetDegats() {
+        return 1 - Mathf.Clamp01(currHP / MAX_HP);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

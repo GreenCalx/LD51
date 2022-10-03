@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 2100000, guid: 464134cda8647d542822e3efa1fce06d, type: 2}
+  shaderCockpit: {fileID: 2100000, guid: ff1645516719b604e892a228fb3d5866, type: 2}
   shaderEnnemy: {fileID: 2100000, guid: 65fcf8b45244d4d4cb2ebc5865b9875c, type: 2}
   playerPosition: {fileID: 1529858723}
 --- !u!81 &632987392

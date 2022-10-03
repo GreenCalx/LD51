@@ -5,6 +5,7 @@ using UnityEngine;
 public class radar : MonoBehaviour
 {
     public Material shader;
+    public Material shaderCockpit;
     public Material shaderEnnemy;
     public Transform playerPosition;
     float CurrentTime = 0;
@@ -46,4 +47,11 @@ public class radar : MonoBehaviour
         Graphics.Blit(source, destination, shader);
     }
     #endif
+
+    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+    {
+        // Render player degats
+        shaderCockpit.SetFloat("_Degats", Access.Player().GetDegats());
+        Graphics.Blit(source, destination, shaderCockpit);
+    }
 }
