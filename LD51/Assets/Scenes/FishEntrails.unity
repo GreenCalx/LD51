@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 466699574}
   - component: {fileID: 466699576}
   - component: {fileID: 466699575}
+  - component: {fileID: 466699577}
   m_Layer: 0
   m_Name: CptnEnd
   m_TagString: Untagged
@@ -384,6 +385,20 @@ MonoBehaviour:
   timeBetweenDialogFrames: 2
   delayedStart: 0
   voices: []
+--- !u!114 &466699577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466699573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbc8e2d1788e834b9858746eb5d0680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: BGM_CHANT
+  oneShot: 1
 --- !u!1 &710732278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5899255318282501796, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
@@ -400,6 +415,7 @@ GameObject:
   - component: {fileID: 872987789}
   - component: {fileID: 872987791}
   - component: {fileID: 872987790}
+  - component: {fileID: 872987792}
   m_Layer: 0
   m_Name: BioEnd
   m_TagString: Untagged
@@ -453,6 +469,20 @@ MonoBehaviour:
   timeBetweenDialogFrames: 2
   delayedStart: 0
   voices: []
+--- !u!114 &872987792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872987788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbc8e2d1788e834b9858746eb5d0680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: BGM_CHANT
+  oneShot: 1
 --- !u!1 &1096679672
 GameObject:
   m_ObjectHideFlags: 0
