@@ -78,5 +78,10 @@ public class Access
     {
         return cache.getObject<SoundManager>(Constants.GO_SOUNDMANAGER, false);
     } 
+
+    public static checkpointManager CheckpointMgr(){
+
+        return cache.getObject<checkpointManager>(Constants.GO_CPMGR, false);
+    }
     
 }

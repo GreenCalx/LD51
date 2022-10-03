@@ -15,6 +15,9 @@ public class Constants
     public static readonly string GO_PLAYER = "Player";
     public static readonly string GO_UISUBMARINE = "SubmarineUI";
     public static readonly string GO_SOUNDMANAGER = "SoundManager";
+    public static readonly string GO_CPMGR = "CheckPoints";
+
+
 
     public static readonly string TAG_GROTTO = "Grotto";
 

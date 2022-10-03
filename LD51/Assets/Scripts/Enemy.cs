@@ -28,11 +28,15 @@ public class Enemy : MonoBehaviour
     public float timerRndDirChg;
     public float currentTimerRndDirChg;
 
+public BoxCollider bc;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (!bc)
+            bc = GetComponent<BoxCollider>();
 
         isDead = false;
         elapsedTimeBeforeDeletion = 0f;
@@ -108,22 +112,26 @@ public class Enemy : MonoBehaviour
     }
 
     void GoTowards(Vector3 desiredPosition) {
-        targetPosition = desiredPosition;
-       var newForward = desiredPosition - transform.position;
-       var newRight = Vector3.Cross(transform.up, newForward);
-       var newUp = Vector3.Cross(newForward, newRight);
-       var rotation = Quaternion.LookRotation(newForward, transform.up);
-       transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 90*Time.deltaTime);
-
-       if (TargetReached()) {
-            transform.position -= (playerBoundRadius-newForward.magnitude)*newForward;
-            return;
-       }
-
-        transform.rotation = Quaternion.AngleAxis( 90 * Time.deltaTime * Mathf.Cos(Time.realtimeSinceStartup), transform.forward ) * transform.rotation;
-        if (canSwim) {
-           transform.position += transform.forward * 3f * Time.deltaTime;
+       targetPosition = desiredPosition;
+       
+        if (WallReached()) {
+            targetPosition = bc.bounds.center;
+            rb.velocity = Vector3.zero;
         }
+
+        // orient forward towards target
+        var newForward = desiredPosition - transform.position;
+        var newRight = Vector3.Cross(transform.up, newForward);
+        var newUp = Vector3.Cross(newForward, newRight);
+        var rotation = Quaternion.LookRotation(newForward, transform.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 90*Time.deltaTime);
+
+       if (PathIsFree()) {
+            transform.rotation = Quaternion.AngleAxis( 90 * Time.deltaTime * Mathf.Cos(Time.realtimeSinceStartup), transform.forward ) * transform.rotation;
+            if (canSwim) {
+                transform.position += transform.forward * 3f * Time.deltaTime;
+            }
+       }
     }
 
     public float playerBoundRadius = 2f;
@@ -131,12 +139,20 @@ public class Enemy : MonoBehaviour
        GoTowards(Access.Player().transform.position);
     }
 
-    private Vector3 targetPosition;
+    public Vector3 targetPosition;
     bool TargetReached() {
-        return (targetPosition - transform.position).magnitude < playerBoundRadius; 
+        return (targetPosition - transform.position).magnitude < playerBoundRadius ;
+    }
+
+    bool PathIsFree() {
+        return !Physics.Raycast(transform.position, transform.forward * 5f, 3f);
+    }
+
+    bool WallReached() {
+        return !bc.bounds.Contains(rb.position); 
     }
     void RandomMove() {
-        if (currentTimerRndDirChg >= timerRndDirChg || TargetReached()) {
+        if (currentTimerRndDirChg >= timerRndDirChg || (TargetReached())) {
             // chose random pos in boundaries
             var newDir = Random.insideUnitSphere * GetComponent<SphereCollider>().radius;
             var newDesiredTarget = transform.position + newDir;

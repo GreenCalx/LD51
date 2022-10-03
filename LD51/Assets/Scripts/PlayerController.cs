@@ -189,6 +189,14 @@ public GameObject pauseMenu;
         {
             tryShoot();
         }
+
+       if (uiGameOver.active) {
+            if (Input.GetButtonDown(Constants.INPUT_VPROP)) {
+                uiGameOver.SetActive(false);
+                var t = transform;
+                Access.CheckpointMgr().Respawn(ref t);
+            }
+        }
     }
 
     private void submarineEffects()
@@ -314,9 +322,11 @@ public GameObject pauseMenu;
         
     }
 
+    public GameObject uiGameOver;
     private void kill()
     {
         //GAME OVER
+        uiGameOver.SetActive(true);
         //SceneManager.LoadScene( Constants.SN_GAMEOVER, LoadSceneMode.Single);
     }
 
