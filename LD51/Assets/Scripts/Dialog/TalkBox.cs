@@ -45,7 +45,7 @@ public class TalkBox : MonoBehaviour
 
     void OnTriggerEnter(Collider iCol)
     {
-        if (iCol.GetComponent<PlayerController>())
+        if (iCol.transform.parent?.GetComponent<PlayerController>())
         {
             talk();
         }

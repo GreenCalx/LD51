@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -518,6 +518,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 60
   amplitude: 2
+--- !u!1 &796074702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7722245658473750928, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+  m_PrefabInstance: {fileID: 7170747316292133667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &892886545
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +693,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 60
   amplitude: 2
+--- !u!1 &979583462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7321658212476743473, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+  m_PrefabInstance: {fileID: 7170747316292133667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1001905678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1032,10 @@ PrefabInstance:
       propertyPath: amplitude
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 180537887284666623, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 796074702}
     - target: {fileID: 1225326487638916979, guid: 61271a1f1499d2449850aea93c030541, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1066,10 +1080,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4356740962798281466, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 979583462}
     - target: {fileID: 4486467446499493119, guid: 61271a1f1499d2449850aea93c030541, type: 3}
       propertyPath: m_Name
       value: 0__WORLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4956170804382751746, guid: 61271a1f1499d2449850aea93c030541, type: 3}
+      propertyPath: dialogUI_ref
+      value: 
+      objectReference: {fileID: 1644095422}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61271a1f1499d2449850aea93c030541, type: 3}
 --- !u!1 &1445688546 stripped
@@ -1266,6 +1288,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581634742}
   m_CullTransparentMesh: 1
+--- !u!1 &1644095422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5899255318282501796, guid: 2642040aeb0f888459c1d28e1efe9453, type: 3}
+  m_PrefabInstance: {fileID: 7170747316292133667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813881964
 GameObject:
   m_ObjectHideFlags: 0
