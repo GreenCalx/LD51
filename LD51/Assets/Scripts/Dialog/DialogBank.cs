@@ -25,7 +25,7 @@ public static class DialogBank
 
     public static readonly string[] BOTANIST_BIOLUM= 
     {
-        "Look at those Kelps emitting light! No light can reach us yet we see them!"
+        "Emissive light is such a classic at this depth."
     };
 
     public static readonly string[] CAPTAIN_GROTTO1= 
@@ -35,17 +35,17 @@ public static class DialogBank
 
     public static readonly string[] BIOLOGIST_THREATS= 
     {
-        "Careful with those weird starfishes ! I advise we shoot them preemptively."
+        "I expect local lifeforms to be...unusued to our presence."
     };
 
     public static readonly string[] CAPTAIN_GROTTO2= 
     {
-        "Well we wanted to find new liferforms... Here we are."
+        "Yeah, you like my home-built harpoons now ?"
     };
     public static readonly string[] BIOLOGIST_GROTTO2= 
     {
-        "Honestly, I didn't expect any discovery down the trench.",
-        "But I expected to come back alive."
+        "Oh c'mon get over it.",
+        "Such a disaster couldn't be forseen."
     };
     public static readonly string[] CAPTAIN_GROTTO3= 
     {
@@ -57,15 +57,15 @@ public static class DialogBank
     };
     public static readonly string[] CAPTAIN_WTF1= 
     {
-        "Are we out ? How can there be structure like this deep inside a cave ?"
+        "What size it this place ? It never ends."
     };
     public static readonly string[] BIOLOGIST_THREATS2= 
     {
-        "I can see sharks above those walls. Please stay hidden in the maze."
+        "It's getting cold or am I becoming crazy?"
     };
     public static readonly string[] BOTANIST_BIGGERKELPS= 
     {
-        "Did you notice ? Kelps are getting bigger as we venture forth."
+        "It's incredible. Kelps are getting bigger as we venture forth."
     };
     public static readonly string[] CAPTAIN_REPBOTA1= 
     {
@@ -73,8 +73,8 @@ public static class DialogBank
     };
     public static readonly string[] BOTANIST_REPCAPTAIN1= 
     {
-        "Why not ? Are you scared of getting attacked by those creatures ? ",
-        "It's not like the outcome of this expedition can change now."
+        "Why not ? Are you scared of getting devoured alive by some big fish ? ",
+        "It's not like the outcome of this expedition can change."
     };
     public static readonly string[] CAPTAIN_REPBOTA2= 
     {
@@ -82,7 +82,7 @@ public static class DialogBank
     };
     public static readonly string[] BIOLOGIST_SCARED1= 
     {
-        "Fuck!! I saw something move ! Right in front of us in the dark!!"
+        "Fuck!! I saw something above our head !!"
     };
     public static readonly string[] CAPTAIN_REPBIO1= 
     {
