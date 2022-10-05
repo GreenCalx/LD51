@@ -94,6 +94,8 @@ public BoxCollider bc;
         impalingNormal = normal;
         isDead = true;
         rb.drag = 0.2f;
+        rb.isKinematic = true;
+        //Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision other)
@@ -101,7 +103,7 @@ public BoxCollider bc;
         Debug.Log("collision ennemy");
         if (other.transform.tag==Constants.TAG_GROTTO)
         {
-            rb.isKinematic = true;
+            //rb.isKinematic = true;
         }
     }
 

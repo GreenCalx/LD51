@@ -46,7 +46,7 @@ public class radar : MonoBehaviour
         shader.SetMatrix("_UNITY_MATRIX_I_VP", (projectionMatrix * viewMatrix).inverse);
         Graphics.Blit(source, destination, shader);
     }
-    #endif
+
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
@@ -54,4 +54,5 @@ public class radar : MonoBehaviour
         shaderCockpit.SetFloat("_Degats", Access.Player().GetDegats());
         Graphics.Blit(source, destination, shaderCockpit);
     }
+#endif
 }
