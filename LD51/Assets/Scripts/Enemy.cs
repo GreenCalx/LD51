@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -18,9 +16,9 @@ public class Enemy : MonoBehaviour
 
     ///
     private float elapsedTimeBeforeDeletion = 0f;
-    public Transform    impalingObject;
-    public Vector3      impalingLocalisation;
-    public Vector3      impalingNormal;
+    public Transform impalingObject;
+    public Vector3 impalingLocalisation;
+    public Vector3 impalingNormal;
 
     public float swimLatch;
     private float currentSwitchLatch;
@@ -28,7 +26,9 @@ public class Enemy : MonoBehaviour
     public float timerRndDirChg;
     public float currentTimerRndDirChg;
 
-public BoxCollider bc;
+    public BoxCollider bc;
+
+    public LayerMask mask;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +42,18 @@ public BoxCollider bc;
 
         isDead = false;
         elapsedTimeBeforeDeletion = 0f;
-        
+
         impalingObject = null;
         impalingLocalisation = Vector3.zero;
         impalingNormal = Vector3.zero;
 
         currentSwitchLatch = swimLatch;
+
+        for (int i = 0; i < 32; i++)
+        {
+            if (!Physics.GetIgnoreLayerCollision(gameObject.layer, i)) mask |= (1 << i);
+        }
+
     }
 
     public bool canSwim = false;
@@ -58,7 +64,8 @@ public BoxCollider bc;
     {
         currentSwitchLatch -= Time.deltaTime;
         currentTimerRndDirChg += Time.deltaTime;
-        if(currentSwitchLatch <= 0f) {
+        if (currentSwitchLatch <= 0f)
+        {
             currentSwitchLatch = swimLatch;
             canSwim = !canSwim;
         }
@@ -88,7 +95,7 @@ public BoxCollider bc;
     {
         Debug.Log("IMPALED!!!!!!");
         impaler.position = localisation;
-        impaler.rotation = Quaternion.FromToRotation(Vector3.up, normal); 
+        impaler.rotation = Quaternion.FromToRotation(Vector3.up, normal);
         impalingObject = impaler;
         impalingLocalisation = localisation;
         impalingNormal = normal;
@@ -101,27 +108,31 @@ public BoxCollider bc;
     void OnCollisionEnter(Collision other)
     {
         Debug.Log("collision ennemy");
-        if (other.transform.tag==Constants.TAG_GROTTO)
+        if (other.transform.tag == Constants.TAG_GROTTO)
         {
             //rb.isKinematic = true;
         }
     }
 
-    void OnTriggerEnter(Collider C) {
+    void OnTriggerEnter(Collider C)
+    {
         Debug.Log("ennemy trigger enter : " + gameObject.name + "  " + C.gameObject.name);
         if (C.gameObject.name == "player")
             canSeePlayer = true;
     }
-    void OnTriggerExit(Collider C) {
+    void OnTriggerExit(Collider C)
+    {
         Debug.Log("ennemy trigger exit : " + gameObject.name + "  " + C.gameObject.name);
         if (C.gameObject.name == "player")
             canSeePlayer = false;
     }
 
-    void GoTowards(Vector3 desiredPosition) {
-       targetPosition = desiredPosition;
-       
-        if (WallReached()) {
+    void GoTowards(Vector3 desiredPosition)
+    {
+        targetPosition = desiredPosition;
+
+        if (WallReached())
+        {
             targetPosition = bc.bounds.center;
             rb.velocity = Vector3.zero;
         }
@@ -131,42 +142,55 @@ public BoxCollider bc;
         var newRight = Vector3.Cross(transform.up, newForward);
         var newUp = Vector3.Cross(newForward, newRight);
         var rotation = Quaternion.LookRotation(newForward, transform.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 90*Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 90 * Time.deltaTime);
 
-       if (PathIsFree()) {
-            transform.rotation = Quaternion.AngleAxis( 90 * Time.deltaTime * Mathf.Cos(Time.realtimeSinceStartup), transform.forward ) * transform.rotation;
-            if (canSwim) {
+        if (PathIsFree())
+        {
+            transform.rotation = Quaternion.AngleAxis(90 * Time.deltaTime * Mathf.Cos(Time.realtimeSinceStartup), transform.forward) * transform.rotation;
+            if (canSwim)
+            {
                 transform.position += transform.forward * 3f * Time.deltaTime;
             }
-       }
+        }
     }
 
     public float playerBoundRadius = 2f;
-    void AttackPlayer() {
-       GoTowards(Access.Player().transform.position);
+    void AttackPlayer()
+    {
+        GoTowards(Access.Player().transform.position);
     }
 
     public Vector3 targetPosition;
-    bool TargetReached() {
-        return (targetPosition - transform.position).magnitude < playerBoundRadius ;
+    bool TargetReached()
+    {
+        return (targetPosition - transform.position).magnitude < playerBoundRadius;
     }
 
-    bool PathIsFree() {
-        return !Physics.Raycast(transform.position, transform.forward * 5f, 3f);
+    bool PathIsFree()
+    {
+        RaycastHit hitInfo;
+        Physics.Raycast(transform.position, transform.forward, out hitInfo, 3f, mask);
+        Debug.Log(hitInfo.collider?.name);
+        return !Physics.Raycast(transform.position, transform.forward, 3f, gameObject.layer);
     }
 
-    bool WallReached() {
-        return bc ? !bc.bounds.Contains(rb.position) : false; 
+    bool WallReached()
+    {
+        return bc ? !bc.bounds.Contains(rb.position) : false;
     }
-    void RandomMove() {
-        if (currentTimerRndDirChg >= timerRndDirChg || (TargetReached())) {
+    void RandomMove()
+    {
+        if (currentTimerRndDirChg >= timerRndDirChg || (TargetReached()))
+        {
             // chose random pos in boundaries
             var newDir = Random.insideUnitSphere * GetComponent<SphereCollider>().radius;
             var newDesiredTarget = transform.position + newDir;
             GoTowards(newDesiredTarget);
             currentTimerRndDirChg = 0;
-         } else {
-             GoTowards(targetPosition);
-         }
+        }
+        else
+        {
+            GoTowards(targetPosition);
+        }
     }
 }
