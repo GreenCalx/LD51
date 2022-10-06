@@ -269,14 +269,16 @@ public GameObject pauseMenu;
         if (otherCollisionSpeed<=0.1f)
         { takeDamageFromStaticCollision(playerCollisionSpeed); }
 
-        playSpatializedCollisionAudio(other.transform);
+        ContactPoint cp = other.contacts[0];
+
+        playSpatializedCollisionAudio(cp.point);
         
     }
 
-    private void playSpatializedCollisionAudio(Transform collider)
+    private void playSpatializedCollisionAudio(Vector3 CP)
     {
-        Vector3 crp = collider.InverseTransformPoint(collider.transform.position);
-
+        Vector3 crp = transform.InverseTransformPoint(CP);
+        Debug.Log(crp);
         // Get the biggest relative coord => consider its coming from this direction
         float X_abs = Mathf.Abs(crp.x);
         float Y_abs = Mathf.Abs(crp.y);
