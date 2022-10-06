@@ -109,14 +109,13 @@ public BoxCollider bc;
 
     void OnTriggerEnter(Collider C) {
         Debug.Log("ennemy trigger enter : " + gameObject.name + "  " + C.gameObject.name);
-        if (C.GetComponent<PlayerController>())
+        if (C.gameObject.name == "player")
             canSeePlayer = true;
     }
     void OnTriggerExit(Collider C) {
         Debug.Log("ennemy trigger exit : " + gameObject.name + "  " + C.gameObject.name);
-        if (C.GetComponent<PlayerController>()) {
+        if (C.gameObject.name == "player")
             canSeePlayer = false;
-        };
     }
 
     void GoTowards(Vector3 desiredPosition) {
