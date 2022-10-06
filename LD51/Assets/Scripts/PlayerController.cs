@@ -328,7 +328,7 @@ public class PlayerController : MonoBehaviour
     {
         float speedRatio = playerCollisionSpeed / MAX_SPEED;
         float damage = hullDamageOverSpeed.Evaluate(speedRatio);
-        currHP -= damage;
+        DoDamage(damage);
 
         if (!!submarineUI)
             submarineUI.updateHullHealth(currHP / MAX_HP);
