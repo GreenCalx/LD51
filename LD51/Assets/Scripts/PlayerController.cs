@@ -1,37 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 
-[Header("Inputs")]
-public bool processInputs = true;
-[Header("Inputs/UI")]
-public GameObject pauseMenu;
-   
+    [Header("Inputs")]
+    public bool processInputs = true;
+    [Header("Inputs/UI")]
+    public GameObject pauseMenu;
+
     [Header("Mandatory Refs")]
-    public Transform        selfFrontRef;
-    public Transform        selfRearRef;
-    public UISubmarine      submarineUI;
-    public SubmarineWeapon  submarineWeapon;
-    public Damage3DAudio    audioDamage;
+    public Transform selfFrontRef;
+    public Transform selfRearRef;
+    public UISubmarine submarineUI;
+    public SubmarineWeapon submarineWeapon;
+    public Damage3DAudio audioDamage;
 
     [Header("Control Tweaks")]
-    [Range(0f,100f)]
+    [Range(0f, 100f)]
     public float verticalPropellerStrength = 1f;
-    [Range(0f,100f)]
+    [Range(0f, 100f)]
     public float horizontalPropellerStrength = 1f;
-    [Range(1f,180f)]
+    [Range(1f, 180f)]
     public float rotSpeedDegPerSec = 1f;
-    [Range(0f,10f)]
+    [Range(0f, 10f)]
     public float pitchDragStrength = 1f;
-    [Range(0f,45f)]
+    [Range(0f, 45f)]
     public float MAX_PITCH_DEG = 30f;
-    [Range(0f,10f)]
+    [Range(0f, 10f)]
     public float MAX_SPEED = 1f;
-    [Range(0.1f,5f)]
+    [Range(0.1f, 5f)]
     public float timeBeforePitchDragStarts = 1f; // seconds
 
     [Header("Submarine Tweaks")]
@@ -75,7 +72,8 @@ public GameObject pauseMenu;
 
     }
 
-    public float GetDegats() {
+    public float GetDegats()
+    {
         return 1 - Mathf.Clamp01(currHP / MAX_HP);
     }
 
@@ -83,17 +81,13 @@ public GameObject pauseMenu;
     void FixedUpdate()
     {
         playerVelocity = rb.velocity;
-        
+
+        // if not we add force
+        rb.AddForce(nextFrameForce);
+        rb.AddTorque(nextFrameTorque);
+
         // check if current speed > max speed
-        if ( rb.velocity.magnitude >= MAX_SPEED )
-        {
-            rb.velocity = rb.velocity.normalized * MAX_SPEED;
-        } else {
-            // if not we add force
-            rb.AddForce(nextFrameForce);
-            rb.AddTorque(nextFrameTorque);
-        }
-        
+        rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, 0, MAX_SPEED);
         submarineEffects();
         currSpeed = new Vector3(rb.velocity.x * rb.transform.forward.x, rb.velocity.y * rb.transform.forward.y, rb.velocity.z * rb.transform.forward.z).magnitude;
 
@@ -111,22 +105,24 @@ public GameObject pauseMenu;
         if (angle > 180) angle -= 360;
         if (angle < -180) angle += 360;
         var error = angle / 180;
-        angle = UpVectorSpring.GetValue( error, Time.fixedDeltaTime) * 180;
+        angle = UpVectorSpring.GetValue(error, Time.fixedDeltaTime) * 180;
         var newRot = Quaternion.AngleAxis(angle, axis);
         rb.MoveRotation(rb.rotation * newRot);
     }
 
-    void Update() {
+    void Update()
+    {
         if (!processInputs) return;
         updateInputs();
 
-        if(Input.GetButtonDown("Cancel")) {
+        if (Input.GetButtonDown("Cancel"))
+        {
             // spawn pause menu
             Time.timeScale = 0f;
             processInputs = false;
             pauseMenu.SetActive(true);
         }
-    
+
         if (currHP <= 0)
         { kill(); }
 
@@ -134,11 +130,13 @@ public GameObject pauseMenu;
         {
             reloadCooldown -= Time.deltaTime;
             submarineUI.setHarpoonRdy(false);
-        } else {
+        }
+        else
+        {
             submarineUI.setHarpoonRdy(true);
         }
     }
-    
+
     private Vector3 nextFrameForce;
     private Vector3 nextFrameTorque;
     private Quaternion nextRot;
@@ -146,11 +144,13 @@ public GameObject pauseMenu;
     private void updateInputs()
     {
         // vertical propeller (upward)
-        if ( Input.GetButton(Constants.INPUT_VPROP))
+        if (Input.GetButton(Constants.INPUT_VPROP))
         {
             nextFrameForce += new Vector3(0, verticalPropellerStrength, 0);
             timeVertPropActivated += Time.deltaTime;
-        } else {
+        }
+        else
+        {
             timeVertPropActivated = 0f;
         }
 
@@ -158,11 +158,13 @@ public GameObject pauseMenu;
         if (Input.GetAxisRaw(Constants.INPUT_HPROP) > 0)
         {
             Vector3 direction = selfFrontRef.position - selfRearRef.position;
-            direction *=  horizontalPropellerStrength;
+            direction *= horizontalPropellerStrength;
 
             nextFrameForce += direction;
             timeHorPropActivated += Time.fixedDeltaTime;
-        } else {
+        }
+        else
+        {
             timeHorPropActivated = 0f;
         }
 
@@ -170,28 +172,30 @@ public GameObject pauseMenu;
         if (Input.GetAxisRaw(Constants.INPUT_HPROP) < 0)
         {
             Vector3 direction = selfFrontRef.position - selfRearRef.position;
-            direction *=  horizontalPropellerStrength;
+            direction *= horizontalPropellerStrength;
 
             nextFrameForce += direction;
         }
 
         // Turn (L/R)
-        if ( Input.GetButton(Constants.INPUT_TURN) )
+        if (Input.GetButton(Constants.INPUT_TURN))
         {
             float turnDirection = Input.GetAxisRaw(Constants.INPUT_TURN);
             turnDirection = (turnDirection >= 0) ? 1 : -1;
-            
+
             nextFrameTorque += turnDirection * rotSpeedDegPerSec * transform.up;
         }
 
         // Fire Harpoon
-        if ( Input.GetButton(Constants.INPUT_FIRE) )
+        if (Input.GetButton(Constants.INPUT_FIRE))
         {
             tryShoot();
         }
 
-       if (uiGameOver.active) {
-            if (Input.GetButtonDown(Constants.INPUT_VPROP)) {
+        if (uiGameOver.active)
+        {
+            if (Input.GetButtonDown(Constants.INPUT_VPROP))
+            {
                 uiGameOver.SetActive(false);
                 var t = transform;
                 Access.CheckpointMgr().Respawn(ref t);
@@ -202,29 +206,30 @@ public GameObject pauseMenu;
     private void submarineEffects()
     {
         // pitch drag IF VERT + horizontal speed
-        if ( (timeVertPropActivated >= timeBeforePitchDragStarts ) && 
+        if ((timeVertPropActivated >= timeBeforePitchDragStarts) &&
              (currentPitch < MAX_PITCH_DEG) &&
              (timeHorPropActivated >= timeBeforePitchDragStarts)
            )
         {
             // crank up pitch
             Vector3 pitchRot = new Vector3(pitchDragStrength, 0f, 0f);
-            Quaternion deltaPitchRot = Quaternion.Euler( pitchRot * Time.fixedDeltaTime);
-            rb.MoveRotation( rb.rotation * deltaPitchRot );
+            Quaternion deltaPitchRot = Quaternion.Euler(pitchRot * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaPitchRot);
 
             updateCurrentPitch();
 
-        } else if ((currentPitch > 0f)&&(timeVertPropActivated<timeBeforePitchDragStarts))
+        }
+        else if ((currentPitch > 0f) && (timeVertPropActivated < timeBeforePitchDragStarts))
         {
             // restabilize pitch to 0
             Vector3 pitchRot = new Vector3(-pitchDragStrength, 0f, 0f);
-            
+
             float yDeltaFrontRear = selfFrontRef.position.y - selfRearRef.position.y;
             if (yDeltaFrontRear > 0)
             { }
             else if (yDeltaFrontRear <= 0)
             {
-                rb.rotation = Quaternion.Euler( new Vector3( initialPitch, rb.rotation.eulerAngles.y, rb.rotation.eulerAngles.z));
+                rb.rotation = Quaternion.Euler(new Vector3(initialPitch, rb.rotation.eulerAngles.y, rb.rotation.eulerAngles.z));
                 return;
             }
             // handle the case where next rot attains 0 pitch to avoid
@@ -234,12 +239,12 @@ public GameObject pauseMenu;
             // {
             //     pitchRot = new Vector3( -currentPitch,0,0);
             // }
-            Quaternion deltaPitchRot = Quaternion.Euler( pitchRot * Time.fixedDeltaTime);
-            rb.MoveRotation( rb.rotation * deltaPitchRot );
+            Quaternion deltaPitchRot = Quaternion.Euler(pitchRot * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaPitchRot);
 
             updateCurrentPitch();
         }
-        
+
 
 
     }
@@ -256,7 +261,7 @@ public GameObject pauseMenu;
         Vector3 collisionNormal = (other.transform.position - transform.position).normalized;
         // player speed towerds collision
         float playerCollisionSpeed = Vector3.Dot(collisionNormal, playerVelocity);
-        if (playerCollisionSpeed < 0) 
+        if (playerCollisionSpeed < 0)
         { playerCollisionSpeed = 0; }
 
         // other collider's speed if its a moving object
@@ -266,7 +271,7 @@ public GameObject pauseMenu;
             otherCollisionSpeed = Vector3.Dot(-collisionNormal, other.relativeVelocity + playerVelocity);
         }
 
-        if (otherCollisionSpeed<=0.1f)
+        if (otherCollisionSpeed <= 0.1f)
         { takeDamageFromStaticCollision(playerCollisionSpeed); }
 
         ContactPoint cp = other.contacts[0];
@@ -304,7 +309,9 @@ public GameObject pauseMenu;
             else
                 Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGEDOWN);
             return;
-        } else {
+        }
+        else
+        {
             if (crp.z > 0) // R
                 Access.SoundManager().PlayOneShot(Constants.SFX_DAMAGEUPFRONT);
             else
@@ -321,15 +328,15 @@ public GameObject pauseMenu;
         currHP -= damage;
 
         if (!!submarineUI)
-            submarineUI.updateHullHealth(currHP/MAX_HP);
-        
+            submarineUI.updateHullHealth(currHP / MAX_HP);
+
     }
 
     public GameObject uiGameOver;
     private void kill()
     {
         //GAME OVER
-        uiGameOver.SetActive(true);
+        //uiGameOver.SetActive(true);
         //SceneManager.LoadScene( Constants.SN_GAMEOVER, LoadSceneMode.Single);
     }
 

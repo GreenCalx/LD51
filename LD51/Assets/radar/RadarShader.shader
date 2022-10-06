@@ -141,7 +141,7 @@ Shader "Unlit/RadarShader"
                     float3 grayscale = dist01;
                     return float4(float3(grayscale),1) * _GeometryColor * falloffDim;
                 }
-                return float4(dist01,1) * _MissColor;
+                return _MissColor;
             }
             ENDCG
         }
