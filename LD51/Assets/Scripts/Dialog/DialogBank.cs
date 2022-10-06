@@ -74,7 +74,7 @@ public static class DialogBank
     public static readonly string[] BOTANIST_REPCAPTAIN1= 
     {
         "Why not ? Are you scared of getting devoured alive by some big fish ? ",
-        "It's not like the outcome of this expedition can change."
+        "It's not like the outcome of this expedition could change."
     };
     public static readonly string[] CAPTAIN_REPBOTA2= 
     {
@@ -82,11 +82,11 @@ public static class DialogBank
     };
     public static readonly string[] BIOLOGIST_SCARED1= 
     {
-        "Fuck!! I saw something above our head !!"
+        "Fuck!! I saw something move above our head !!"
     };
     public static readonly string[] CAPTAIN_REPBIO1= 
     {
-        "You're scared of ghosts now ?"
+        "Are you scared of ghosts now ?"
     };
     public static readonly string[] BIOLOGIST_REPCAPTAIN1= 
     {
@@ -94,7 +94,7 @@ public static class DialogBank
     };
     public static readonly string[] CAPTAIN_REPBIO2= 
     {
-        "You never held a screwdriver in your hand you're talking.."
+        "You never held a screwdriver in your hand and you're talking.."
     };
     public static readonly string[] BIOLOGIST_REPCAPTAIN2= 
     {
