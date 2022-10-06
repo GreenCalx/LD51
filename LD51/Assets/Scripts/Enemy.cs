@@ -30,13 +30,19 @@ public class Enemy : MonoBehaviour
 
     public LayerMask mask;
 
+    public enum Type {
+        shark,
+        medusa
+    };
+    public Type type;
+
+    public bool killonsight;
+
+    private PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        if (!bc)
-            bc = GetComponent<BoxCollider>();
 
         patrol = bc != null;
 
@@ -117,14 +123,20 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter(Collider C)
     {
         Debug.Log("ennemy trigger enter : " + gameObject.name + "  " + C.gameObject.name);
-        if (C.gameObject.name == "player")
+        if (C.gameObject.name == "player") {
             canSeePlayer = true;
+            player = C.gameObject.GetComponentInParent<PlayerController>();
+
+        if (killonsight)
+            C.gameObject.GetComponentInParent<PlayerController>().kill();
+        }
+
     }
     void OnTriggerExit(Collider C)
     {
-        Debug.Log("ennemy trigger exit : " + gameObject.name + "  " + C.gameObject.name);
-        if (C.gameObject.name == "player")
-            canSeePlayer = false;
+        //Debug.Log("ennemy trigger exit : " + gameObject.name + "  " + C.gameObject.name);
+        //if (C.gameObject.name == "player")
+        //    canSeePlayer = false;
     }
 
     void GoTowards(Vector3 desiredPosition)
@@ -142,14 +154,18 @@ public class Enemy : MonoBehaviour
         var newRight = Vector3.Cross(transform.up, newForward);
         var newUp = Vector3.Cross(newForward, newRight);
         var rotation = Quaternion.LookRotation(newForward, transform.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 90 * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 180 * Time.deltaTime);
 
         if (PathIsFree())
         {
-            transform.rotation = Quaternion.AngleAxis(90 * Time.deltaTime * Mathf.Cos(Time.realtimeSinceStartup), transform.forward) * transform.rotation;
+            if(type == Type.medusa)
+                transform.rotation = Quaternion.AngleAxis(90 * Time.deltaTime * Mathf.Cos(Time.realtimeSinceStartup), transform.forward) * transform.rotation;
             if (canSwim)
             {
-                transform.position += transform.forward * 3f * Time.deltaTime;
+                if(type == Type.shark)
+                    transform.position += transform.forward * 10f * Time.deltaTime;
+                if(type == Type.medusa)
+                    transform.position += transform.forward * 3f * Time.deltaTime;
             }
         }
     }
@@ -168,9 +184,6 @@ public class Enemy : MonoBehaviour
 
     bool PathIsFree()
     {
-        RaycastHit hitInfo;
-        Physics.Raycast(transform.position, transform.forward, out hitInfo, 3f, mask);
-        Debug.Log(hitInfo.collider?.name);
         return !Physics.Raycast(transform.position, transform.forward, 3f, gameObject.layer);
     }
 
@@ -180,6 +193,9 @@ public class Enemy : MonoBehaviour
     }
     void RandomMove()
     {
+        if (TargetReached() && canSeePlayer) {
+            player.DoDamage( Type.shark == type ? 10 : 1);
+        }
         if (currentTimerRndDirChg >= timerRndDirChg || (TargetReached()))
         {
             // chose random pos in boundaries

@@ -72,6 +72,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void DoDamage(float dmg) {
+        currHP -= dmg;
+    }
     public float GetDegats()
     {
         return 1 - Mathf.Clamp01(currHP / MAX_HP);
@@ -333,10 +336,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public GameObject uiGameOver;
-    private void kill()
+    public void kill()
     {
         //GAME OVER
-        //uiGameOver.SetActive(true);
+        uiGameOver.SetActive(true);
         //SceneManager.LoadScene( Constants.SN_GAMEOVER, LoadSceneMode.Single);
     }
 
