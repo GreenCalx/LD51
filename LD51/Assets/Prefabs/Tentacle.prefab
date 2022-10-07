@@ -180,7 +180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 456425399677217947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0a24027becd254b922c070d93d0af5, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fedbbe998a47a843a75db09f9471c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bones:
@@ -192,12 +192,11 @@ MonoBehaviour:
   limitAngle: 90
   rootAngle: 0
   S:
-    min: -1
-    max: 1
-    dampRatio: 0.1
-    stiffness: 0.8
     rest: 0
-    vel: 0
+    max: 1
+    min: -1
+    f: 0.8
+    dr: 0.1
 --- !u!4 &1444631005316706922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5490399226833740410, guid: 6d197b8f82ce55e46b21fa8024a2d7da, type: 3}

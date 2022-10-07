@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         if (angle > 180) angle -= 360;
         if (angle < -180) angle += 360;
         var error = angle / 180;
-        angle = UpVectorSpring.GetValue(error, Time.fixedDeltaTime) * 180;
+        angle = UpVectorSpring.Compute(error, Time.fixedDeltaTime) * 180;
         var newRot = Quaternion.AngleAxis(angle, axis);
         rb.MoveRotation(rb.rotation * newRot);
     }

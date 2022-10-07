@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RadarMatEnnemy
-  m_Shader: {fileID: 4800000, guid: e8c856b6525c93343a5b44b0d32e464a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 031ebe2ac3cd40240b051e707de4e4c4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -59,7 +59,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CurrentTime: 0.6666667
+    - _CurrentTime: 1.0964988
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -84,5 +84,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GeometryColor: {r: 0.2627451, g: 0.074915715, b: 0.050980385, a: 1}
     - _MissColor: {r: 0, g: 0, b: 0, a: 1}
-    - _PlayerPosition: {r: 1.1254997e-11, g: -91.02687, b: -807.5, a: 0}
+    - _PlayerPosition: {r: 1.0818137, g: -39.846558, b: -37.90051, a: 0}
   m_BuildTextureStacks: []

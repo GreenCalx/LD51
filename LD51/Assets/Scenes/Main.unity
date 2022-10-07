@@ -880,27 +880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0a24027becd254b922c070d93d0af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bones:
-  - {fileID: 423569231}
-  - {fileID: 1024834028}
-  - {fileID: 833783955}
-  - {fileID: 115180993}
-  - {fileID: 272013073}
-  bones_last_position:
-  - {x: -15.930129, y: -66.01607, z: -255.0824}
-  - {x: -16.302855, y: -77.196686, z: -259.16287}
-  - {x: -23.877243, y: -84.92887, z: -261.1024}
-  - {x: -36.31931, y: -95.02519, z: -263.95233}
-  - {x: -38.031376, y: -102.67879, z: -267.82935}
-  limitAngle: 45
-  rootAngle: 0
-  S:
-    min: -1
-    max: 1
-    dampRatio: 0.5
-    stiffness: 2
-    rest: 0
-    vel: 0
 --- !u!1 &625767893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,6 +1786,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 788279452, guid: b886d097ad1e7b0479ac01a50b094413, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b886d097ad1e7b0479ac01a50b094413, type: 3}
+--- !u!82 &1122491948 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1883132992991726835, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+  m_PrefabInstance: {fileID: 8777192657386399680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1147502779 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2317049173097769142, guid: 622f72b6bfd411d489c381a557ec82b3, type: 3}
@@ -4905,67 +4889,35 @@ PrefabInstance:
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[1].Source
       value: 
-      objectReference: {fileID: 8777192657386399682}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[1].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1122491948}
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[2].Source
       value: 
       objectReference: {fileID: 978461256}
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[2].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[3].Source
       value: 
       objectReference: {fileID: 8777192657386399686}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[3].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[4].Source
       value: 
       objectReference: {fileID: 8777192657386399685}
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[4].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[5].Source
       value: 
       objectReference: {fileID: 8777192657386399684}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[5].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[6].Source
       value: 
       objectReference: {fileID: 8777192657386399683}
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[6].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[8].Source
       value: 
       objectReference: {fileID: 286717749}
     - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[8].Volume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: Sounds.Array.data[9].Source
       value: 
       objectReference: {fileID: 1147502779}
-    - target: {fileID: 4254824793664420241, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
-      propertyPath: Sounds.Array.data[9].Volume
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 8483461407364482873, guid: 4870bf0215c4a83408a8d018736b7e5e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5509,6 +5461,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2017947277}
     - target: {fileID: 8777192656003815912, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+      propertyPath: UpVectorSpring
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777192656003815912, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+      propertyPath: UpVectorSpring.f
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777192656003815912, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
+      propertyPath: UpVectorSpring.dr
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777192656003815912, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
       propertyPath: rotSpeedDegPerSec
       value: 3
       objectReference: {fileID: 0}
@@ -5570,11 +5534,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
---- !u!82 &8777192657386399682 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1883132992991726835, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
-  m_PrefabInstance: {fileID: 8777192657386399680}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &8777192657386399683 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5347112974141583006, guid: c023867fa61ca6e4f892d7d28e5293b3, type: 3}
